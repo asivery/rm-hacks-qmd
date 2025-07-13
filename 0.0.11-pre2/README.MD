@@ -9,6 +9,7 @@ Current state of the port:
 
 - ✅ all_mono_hack.qmd
 - ❓ alphabetize_tags_list_hack.qmd (Expected function does not execute.)
+- ✅ auto_new_page_hack.qmd
 - ✅ bookmarks.qmd
 - ✅ document_battery_wifi_hack.qmd
 - ✅ document_clock_hack.qmd
