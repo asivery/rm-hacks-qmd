@@ -29,7 +29,7 @@ This repository only provides the source code for rm-hacks in QMD form.
 It is possible to install these files using the [qt-resource-rebuilder](https://github.com/asivery/rm-xovi-extensions/tree/master/qt-resource-rebuilder) [xovi](https://github.com/asivery/xovi) extension,
 but that method is only recommended if you have any other extensions in addition
 to rm-hacks.
-**Otherwise, please use the installer from the original rm-hacks repository linked above.**
+**Otherwise, please use the installer from the original rm-hacks repository linked above. (NOT YET AVAILABLE)**
 
 ### Installation using qt-resource-rebuilder
 
