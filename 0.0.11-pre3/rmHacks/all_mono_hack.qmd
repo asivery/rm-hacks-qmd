@@ -1,0 +1,43 @@
+SLOT rmhConfigProperties
+    INSERT {
+        property bool rmhAllMonoEnabled: ~&214625660372&~
+    }
+END SLOT
+SLOT rmhConfigAliases
+    INSERT {
+        property alias rmhAllMonoEnabled: ~&7083272960857&~.rmhAllMonoEnabled
+    }
+END SLOT
+
+SLOT rmhSettingsGeneralModel
+    INSERT {
+        {
+           ~&214632764553&~: "Mono mode",
+           ~&478136262235079021&~: "Enable mono-mode. Only for rmpro users.",
+           ~&233723734822480&~: ~&7082020628281&~.rmhAllMonoEnabled,
+           ~&7082453764199&~: () => { ~&7082020628281&~.rmhAllMonoEnabled = !~&7082020628281&~.rmhAllMonoEnabled },
+           ~&233748328658231&~: !(~&8397887615021556741&~.~&8399372782522826843&~ === ~&8397887615021556741&~.~&214601156697&~ || ~&8397887615021556741&~.~&8399372782522826843&~ === ~&8397887615021556741&~.RM110),
+        },
+    }
+END SLOT
+
+AFFECT [[2328484894988065446]]
+    TRAVERSE [[8397788359424131273]] > [[2172328112067264168]]
+        REBUILD [[233748328658231]]
+            LOCATE AFTER STREAM ? { ?
+            INSERT {
+                ~&5972376&~ (~&7082020628281&~.rmhAllMonoEnabled) {
+                    ~&7083121450889&~ ~&6504329801&~;
+                }
+            }
+        END REBUILD
+        REBUILD [[6504074414]]
+            LOCATE AFTER STREAM ? { ?
+            INSERT {
+                ~&5972376&~ (~&7082020628281&~.rmhAllMonoEnabled) {
+                    ~&7083121450889&~ ~&7081372714662&~.~&10578197394989910333&~.~&254477590585233257&~;
+                }
+            }
+        END REBUILD
+    END TRAVERSE
+END AFFECT

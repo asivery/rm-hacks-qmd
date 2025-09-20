@@ -1,0 +1,59 @@
+AFFECT [[11806562588218124596]]
+    TRAVERSE [[8397993708429497603]]
+        LOCATE BEFORE ALL INSERT { required property ~&197102514&~ askForToolbarSwitch }
+        TRAVERSE [[6502786168]] > [[12275738949138671844]]
+            LOCATE BEFORE ALL INSERT { askForToolbarSwitch: ~&6504254477&~.askForToolbarSwitch }
+        END TRAVERSE
+    END TRAVERSE
+END AFFECT
+
+AFFECT [[17298303916558156758]]
+    TRAVERSE [[254504370080162629]]
+        LOCATE BEFORE ALL INSERT { required property ~&197102514&~ askForToolbarSwitch }
+        TRAVERSE [[8520322697674622449]]#[[8400129380148390002]]
+            REBUILD [[233739427250348]]
+                LOCATE AFTER STREAM / { / INSERT { ~&254549375155946341&~.askForToolbarSwitch() }
+            END REBUILD
+        END TRAVERSE
+    END TRAVERSE
+END AFFECT
+
+AFFECT [[1224665461898798997]]
+    TRAVERSE [[8397993708429497603]]
+        LOCATE BEFORE ALL
+        INSERT {
+            signal askForToolbarSwitch
+        }
+        TRAVERSE [[5728643844066569666]]
+            LOCATE BEFORE ALL INSERT { askForToolbarSwitch: () => ~&15793094956877902211&~.askForToolbarSwitch() }
+        END TRAVERSE
+
+        REBUILD [[11332990887960589462]]
+            LOCATE BEFORE ALL
+            INSERT { ~&15793094956877902211&~.askForToolbarSwitch() }
+        END REBUILD
+    END TRAVERSE
+END AFFECT
+
+AFFECT [[2328484894988065446]]
+    TRAVERSE [[8397788359424131273]] > [[8397993708429497603]]#[[7713531976371484]] > [[8397993708429497603]]#[[7713694313857736]]
+        LOCATE AFTER [[7081645463424]]#[[15793094956877902211]]
+        INSERT {
+            ~&428051690305612204&~ {
+                ~&7083194890448&~: ~&15793094956877902211&~.~&6503936152&~
+                function onAskForToolbarSwitch() {
+                    /* Switch to main!*/
+                    mainDocumentSelected = ~&6504329801&~;
+                }
+            }
+            ~&428051690305612204&~ {
+                ~&7083194890448&~: rmhDocumentViewSplit.~&6503936152&~
+                function onAskForToolbarSwitch() {
+                    /* Switch to split document!*/
+                    mainDocumentSelected = ~&214625660372&~;
+                }
+            }
+        }
+    END TRAVERSE
+END AFFECT
+

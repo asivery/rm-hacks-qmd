@@ -1,0 +1,319 @@
+SLOT rmhConfigProperties
+    INSERT {
+        property ~&197088788&~ rmhSplitMode: ~&7082020628281&~.RmhSplittingMode.~&197060196&~
+        property ~&197088788&~ rmhOverlayedMode: ~&7082020628281&~.RmhOverlayedMode.TopRight
+        property ~&197088788&~ rmhSplitRatio: ~&7082020628281&~.RmhSplittingRatio.OneThird
+        property bool rmhSplitSwitch: ~&214625660372&~
+        property ~&7083178290016&~ rmhCurrentSplitDocId: ""
+        property ~&7083178290016&~ rmhPreviousSplitDocId: ""
+        property ~&7083178290016&~ rmhCurrentMainDocId: ""
+        property ~&7083178290016&~ rmhPreviousMainDocId: ""
+        property ~&197088788&~ rmhLastSplitMode: rmhSplitMode
+        property bool rmhSplitDocHack: ~&6504329801&~
+        property bool rmhMainDocOpenButtonsHack: ~&6504329801&~
+        property bool openInSecondDoc: ~&214625660372&~
+    }
+END SLOT
+
+SLOT rmhConfigAliases
+    INSERT {
+        property alias rmhSplitDocHack: ~&7083272960857&~.rmhSplitDocHack
+        property alias rmhOverlayedMode: ~&7083272960857&~.rmhOverlayedMode
+        property alias rmhSplitRatio: ~&7083272960857&~.rmhSplitRatio
+        property alias rmhSplitSwitch: ~&7083272960857&~.rmhSplitSwitch
+        property alias rmhCurrentSplitDocId: ~&7083272960857&~.rmhCurrentSplitDocId
+        property alias rmhPreviousSplitDocId: ~&7083272960857&~.rmhPreviousSplitDocId
+        property alias rmhCurrentMainDocId: ~&7083272960857&~.rmhCurrentMainDocId
+        property alias rmhPreviousMainDocId: ~&7083272960857&~.rmhPreviousMainDocId
+        property alias rmhLastSplitMode: ~&7083272960857&~.rmhLastSplitMode
+        property alias rmhMainDocOpenButtonsHack: ~&7083272960857&~.rmhMainDocOpenButtonsHack
+    }
+END SLOT
+
+SLOT rmhSettingsDocumentsModel
+    INSERT {
+        {
+           ~&214632764553&~: "Split Document",
+           ~&478136262235079021&~: "Shows in the layers menu some options to split or overlay the current document with a second document",
+           ~&233723734822480&~: ~&7082020628281&~.rmhSplitDocHack,
+           ~&7082453764199&~: () => { ~&7082020628281&~.rmhSplitDocHack = !~&7082020628281&~.rmhSplitDocHack },
+        },
+    }
+END SLOT
+
+AFFECT [[1658694193319203921]]
+    TRAVERSE [[6502786168]]
+        LOCATE AFTER ALL INSERT {
+            onRmhSplitModeChanged: {
+                ~&5972376&~ (rmhSplitMode != ~&7082020628281&~.RmhSplittingMode.~&197060196&~) {
+                    rmhLastSplitMode = rmhSplitMode
+                }
+            }
+
+            enum RmhSplittingMode {
+                ~&197060196&~ = 0,
+                Overlayed,
+                Divided,
+                DividedVertical
+            }
+            enum RmhOverlayedMode {
+                TopRight = 0,
+                TopLeft,
+                BottomLeft,
+                BottomRight
+            }
+            enum RmhSplittingRatio {
+                Half = 0,
+                OneThird,
+                OneFourth,
+                OneFifth
+            }
+        }
+    END TRAVERSE
+END AFFECT
+
+AFFECT [[2328484894988065446]]
+    ;   Take the split document view's globalScreenMode into account:
+    TRAVERSE [[8397788359424131273]] > [[2172328112067264168]]
+        REBUILD [[233748328658231]]
+            LOCATE BEFORE { ~&5972376&~ (!~&15793094956877902211&~ }
+            REMOVE UNTIL END
+            LOCATE AFTER ALL INSERT STREAM / ~&7083121450889&~ (~&15793094956877902211&~.~&6503936152&~?.~&6549147860189642431&~ ?? rmhDocumentViewSplit.~&6503936152&~?.~&6549147860189642431&~) !== ~&254550717068498203&~; } /
+        END REBUILD
+        REBUILD [[6504074414]]
+            LOCATE BEFORE { ~&5972376&~ (~&15793094956877902211&~ }
+            REMOVE UNTIL END
+            LOCATE AFTER ALL INSERT STREAM / ~&7083121450889&~ (~&15793094956877902211&~.~&6503936152&~?.~&6549147860189642431&~ ?? rmhDocumentViewSplit.~&6503936152&~?.~&6549147860189642431&~) ?? ~&7081372714662&~.~&10578197394989910333&~.~&5971687&~; } /
+        END REBUILD
+    END TRAVERSE
+
+    TRAVERSE [[8397788359424131273]] > [[8397993708429497603]]#[[7713531976371484]] > [[8397993708429497603]]#[[7713694313857736]]
+        TRAVERSE [[254495336496498420]]#[[254540341572282132]]
+            REBUILD [[1665714865315876004]]
+                LOCATE BEFORE STREAM / } /
+                INSERT { rmhDocumentViewSplit.~&16021043814775702381&~ = rmhDocumentViewSplitComponent; }
+            END REBUILD
+        END TRAVERSE
+
+        TRAVERSE [[7081645463424]]#[[15793094956877902211]]
+            LOCATE BEFORE ALL INSERT {
+                ~&180993&~: 0
+                ~&180994&~: 0
+
+                ~&233681166222244&~ {
+                    ~&6504426203&~: ~&15793094956877902211&~.~&6503936152&~ && mainToolbar.~&6503936152&~
+                    ~&7083194890448&~: ~&15793094956877902211&~.~&6503936152&~
+                    property: ~&'233745975898428&~
+                    ~&214644635174&~: mainToolbar.~&6503936152&~
+                }
+            }
+            REMOVE [[5130717458105847837]]
+        END TRAVERSE
+
+        LOCATE AFTER [[7081645463424]]#[[15793094956877902211]]
+        INSERT {
+            /* The overlayed document border*/
+            ~&254501108490678590&~ {
+                ~&233721384511543&~.~&7712879746914881&~: rmhDocumentViewSplit
+                ~&7082507052999&~.~&214622605608&~: ~&7082020628281&~.~&8399340017235344933&~
+                ~&7082507052999&~.~&214646099849&~: 2
+                ~&233748328658231&~: rmhDocumentViewSplit.~&233748328658231&~
+                ~&214646099849&~: rmhDocumentViewSplit.~&214646099849&~ + 4
+                ~&7082729686082&~: rmhDocumentViewSplit.~&7082729686082&~ + 4
+            }
+
+            ~&7081645463424&~ {
+                ~&8399878573055752961&~: "DocumentViewSplit"
+                ~&5972374&~: rmhDocumentViewSplit
+                ~&15648605738915750485&~: ~&6504329801&~
+                ~&233748328658231&~: ~&7082020628281&~.rmhSplitDocHack && ~&15793094956877902211&~.~&233748328658231&~ && ~&214646099849&~ > 0 && ~&7082729686082&~ > 0
+                ~&214646099849&~: 0
+                ~&7082729686082&~: 0
+
+                ~&7713401454751279&~: () => {
+                    rmhDocumentViewSplit.~&6503936152&~.~&233745975898428&~ = mainToolbar.~&6503936152&~;
+                }
+
+                ~&233681166222244&~ {
+                    ~&6504426203&~: rmhDocumentViewSplit.~&6503936152&~ && mainToolbar.~&6503936152&~
+                    ~&7083194890448&~: rmhDocumentViewSplit.~&6503936152&~
+                    property: ~&'233745975898428&~
+                    ~&214644635174&~: mainToolbar.~&6503936152&~
+                }
+            }
+        }
+
+        ;   Insert the new documentview.
+        LOCATE AFTER [[254480451320573660]]#[[753859200562563126]]
+        INSERT {
+            ~&254480451320573660&~ {
+                ~&5972374&~: rmhDocumentViewSplitComponent
+                ~&14175747548438644067&~ {
+                    ~&5972374&~: rmhDocumentViewSplitItem
+
+                    isSecondDoc: ~&6504329801&~
+                    ~&6503711953&~: ~&6504329801&~
+                    mainDocumentViewItem: ~&15793094956877902211&~.~&6503936152&~
+                    firstItemHeight: rmhDocumentViewSplit.~&6503936152&~.~&7082729686082&~
+
+                    ~&14054373467553779636&~: ~&6504254477&~.~&14054373467553779636&~
+                    ~&14259564207776773479&~: ~&6504254477&~.~&14259564207776773479&~
+                    ~&7842066060529582499&~: ~&5751670711254023426&~
+                    ~&7713433728813122&~: ~&11206357713879652003&~.~&496507644976596653&~
+                    ~&8400115464476676380&~: ~&6504254477&~.~&8400115464476676380&~
+                    ~&2766288418351025740&~: ~&6504254477&~.~&2766288418351025740&~
+                    ~&18307285205407458435&~: ~&6504254477&~.~&5528987290049822124&~
+                    ~&4712892340459039035&~: ~&8398537280477478927&~.~&7713561876955258&~
+                    ~&8074136637285619355&~: ~&6314931342039497581&~.~&233748328658231&~
+                    ~&15845976219488365318&~: ~&6504254477&~.~&15845976219488365318&~
+                    ~&495572996767745525&~: ~&6504254477&~.~&495572996767745525&~
+                    ~&8400072290688674154&~: ~&6504254477&~.~&8400072290688674154&~
+                    ~&10509964749635331227&~: ~&6504254477&~.~&10509964749635331227&~
+
+                    ~&214626153769&~: ~&6504329801&~ /* Loader is a focus scope. This translates to having focus whenever the loader does.*/
+                    ~&10476114579171410134&~: ~&6504254477&~.~&10476114579171410134&~
+                    ~&11814444212400738190&~: {
+                        ~&254540341572282132&~.~&8400072893140454432&~();
+                    }
+
+                    ~&428051690305612204&~ {
+                        ~&7083194890448&~: ~&233694067165438&~
+                        function ~&8789052782016896247&~(ids) {
+                            ~&5972376&~ (~&7712934851008712&~ && ids.~&7713146641368448&~(~&7712934851008712&~.~&5972374&~)) {
+                                ~&15793094956877902211&~.~&6503936152&~.~&214622501183&~();
+                            }
+                        }
+                    }
+
+                    ~&16664207487409295708&~: ~&6314931342039497581&~.~&6504282794&~()
+                    ~&7256940299957714445&~: (~&478136262235079021&~) => {
+                        ~&14288768556891793411&~.~&7713146761148186&~ = ~&478136262235079021&~;
+                        ~&14288768556891793411&~.~&233748328658231&~ = ~&6504329801&~;
+                    }
+
+                    ~&17274701102379791786&~: {
+                        ~&5972376&~ (~&6504254477&~.~&16744692231240474815&~.~&7712892661442248&~(~&"13710581283192580798&~)) {
+                            ~&6504254477&~.~&2766288418351025740&~.~&214622501183&~(~&"13710581283192580798&~);
+                        }
+                    }
+
+                    ~&13184053911240945935&~: {
+                        ~&9525712753438949609&~.~&15513197134136840912&~ = ~&7712934851008712&~ ? ~&7712934851008712&~.~&5972374&~ : "";
+                    }
+
+                    ~&7306187543352398922&~ {
+                        ~&5972374&~: ~&6351473742456149476&~
+                        ~&8399943822441212087&~: ~&8398458654940349591&~
+                        ~&6504095402&~: ~&"5661192156700175514&~
+                        ~&8399320376766137149&~: !~&15793094956877902211&~.~&233748328658231&~ || !~&14771436816723967378&~.~&254534022647302435&~
+                    }
+
+                    ~&254501108490678590&~ {
+                        ~&233721384511543&~.~&6504027668&~: ~&7083038346995&~.~&6504027668&~
+                        ~&233721384511543&~.~&197100796&~: ~&7083038346995&~.~&197100796&~
+                        ~&7082729686082&~: ~&7083038346995&~.~&7082729686082&~ - 10
+                        ~&214646099849&~: ~&7082020628281&~.rmhSplitMode === ~&7082020628281&~.RmhSplittingMode.Overlayed ? 0 : 10
+                        ~&214622605608&~: ~&7082020628281&~.~&8399340017235344933&~
+                        ~&233739540775906&~: 0.2
+                    }
+                    ~&254501108490678590&~ {
+                        ~&233721384511543&~.~&7082507142622&~: ~&7083038346995&~.~&7082507142622&~
+                        ~&233721384511543&~.~&6504027668&~: ~&7083038346995&~.~&6504027668&~
+                        ~&7082729686082&~: ~&7082020628281&~.rmhSplitMode === ~&7082020628281&~.RmhSplittingMode.Overlayed ? 0 : 10
+                        ~&214646099849&~: ~&7083038346995&~.~&214646099849&~ - 10
+                        ~&214622605608&~: ~&7082020628281&~.~&8399340017235344933&~
+                        ~&233739540775906&~: 0.2
+                    }
+                    ~&254501108490678590&~ {
+                        ~&233721384511543&~.~&214640173127&~: ~&7083038346995&~.~&214640173127&~
+                        ~&233721384511543&~.~&7082507142622&~: ~&7083038346995&~.~&7082507142622&~
+                        ~&7082729686082&~: ~&7083038346995&~.~&7082729686082&~ - 10
+                        ~&214646099849&~: ~&7082020628281&~.rmhSplitMode === ~&7082020628281&~.RmhSplittingMode.Overlayed ? 0 : 10
+                        ~&214622605608&~: ~&7082020628281&~.~&8399340017235344933&~
+                        ~&233739540775906&~: 0.2
+                    }
+                    ~&254501108490678590&~ {
+                        ~&233721384511543&~.~&197100796&~: ~&7083038346995&~.~&197100796&~
+                        ~&233721384511543&~.~&214640173127&~: ~&7083038346995&~.~&214640173127&~
+                        ~&7082729686082&~: ~&7082020628281&~.rmhSplitMode === ~&7082020628281&~.RmhSplittingMode.Overlayed ? 0 : 10
+                        ~&214646099849&~: ~&7083038346995&~.~&214646099849&~ - 10
+                        ~&214622605608&~: ~&7082020628281&~.~&8399340017235344933&~
+                        ~&233739540775906&~: 0.2
+                    }
+                }
+            }
+
+            ~&428051690305612204&~ {
+                ~&7083194890448&~: ~&7082020628281&~
+
+                function onRmhSplitModeChanged() {
+                    ~&7713694313857736&~.recalcSplitSizes()
+                }
+
+                function onRmhSplitRatioChanged() {
+                    ~&7713694313857736&~.recalcSplitSizes()
+                }
+
+                function onRmhOverlayedModeChanged() {
+                    ~&7713694313857736&~.recalcSplitSizes()
+                }
+
+                function onRmhSplitSwitchChanged() {
+                    ~&7713694313857736&~.recalcSplitSizes()
+                }
+
+                function ~&418530952578462221&~() {
+                    ~&7713694313857736&~.recalcSplitSizes()
+                }
+            }
+        }
+    END TRAVERSE
+END AFFECT
+
+AFFECT [[1224665461898798997]]
+    TRAVERSE [[8397993708429497603]]
+        LOCATE BEFORE ALL
+        INSERT {
+            /* rmhacks for split screen*/
+            property bool isSecondDoc: ~&214625660372&~
+            property ~&197102514&~ mainDocumentViewItem: ~&254550717068498203&~
+            property ~&197102514&~ splitDocumentView: ~&254550717068498203&~
+            property ~&197088788&~ firstItemHeight: ~&7082729686082&~
+            ~&6503711953&~: ~&6504329801&~
+        }
+        RENAME [[214622501183]] TO _rmh_splitdoc_close
+        INSERT {
+            function ~&214622501183&~(isPartOfReload=~&214625660372&~) {
+                ~&5972376&~ (splitDocumentView && splitDocumentView.~&6503936152&~ && splitDocumentView.~&6503936152&~.~&7712934851008712&~) {
+                    ~&7082020628281&~.rmhSplitMode = ~&7082020628281&~.RmhSplittingMode.~&197060196&~
+                    splitDocumentView.~&6503936152&~.~&214622501183&~()
+                } ~&6503784146&~ ~&5972376&~ (isSecondDoc && !isPartOfReload) {
+                    ~&7082020628281&~.rmhSplitMode = ~&7082020628281&~.RmhSplittingMode.~&197060196&~
+                    /* viewRoot.recalcSplitSizes()*/
+                    ~&7083121450889&~;
+                }
+                _rmh_splitdoc_close();
+            }
+        }
+        REBUILD [[15540965305686433881]]
+            LOCATE BEFORE { .~&214622501183&~() }
+            REPLACE LOCATED WITH { .~&214622501183&~(~&6504329801&~) }
+        END REBUILD
+    END TRAVERSE
+END AFFECT
+
+AFFECT [[11806562588218124596]]
+    TRAVERSE [[8397993708429497603]] > [[6502786168]] > [[6502786168]]#[[254550477519892873]] > [[254501108490678590]]#[[8399743405430548626]]
+        REBUILD [[233748328658231]]
+            LOCATE AFTER ALL INSERT { && ~&7082020628281&~.rmhSplitMode === ~&7082020628281&~.RmhSplittingMode.~&197060196&~ }
+        END REBUILD
+    END TRAVERSE
+END AFFECT
+
+LOAD document_opening.qmd
+LOAD focus_switching.qmd
+LOAD no_orientation_switch.qmd
+LOAD size_recalculation.qmd
+LOAD layers_menu.qmd
+LOAD toolbar.qmd
+LOAD last_document_storage.qmd
