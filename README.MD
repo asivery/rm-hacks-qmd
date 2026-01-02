@@ -33,7 +33,7 @@ to rm-hacks.
 
 ### Installation using qt-resource-rebuilder
 
-- Make sure you have `xovi` and `qt-resource-rebuilder` installed ([installation manual](https://github.com/asivery/rm-xovi-extensions/blob/master/INSTALL.MD)) and hashtab rebuilt.
+- Make sure you have `xovi` and `qt-resource-rebuilder` installed ([installation manual](https://github.com/asivery/rm-xovi-extensions#to-install-xovi)) and hashtab rebuilt.
 - Download this repository as code (green button labelled "Code", then "Download ZIP")
 - Choose the appropriate version for your device (refer to the compatibility chart below)
 - Copy all the contents of the directory (`zz_rmHacks.qmd` file and `rmHacks` directory) to `/home/root/xovi/exthome/qt-resource-rebuilder` on your tablet
