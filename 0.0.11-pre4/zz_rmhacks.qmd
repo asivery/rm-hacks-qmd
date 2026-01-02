@@ -1,0 +1,36 @@
+;   rm-hacks-qmd v0.0.11-pre3
+VERSION [[17607111715072197239]]
+
+LOAD rmHacks/base/global.qmd
+LOAD rmHacks/base/settings.qmd
+LOAD rmHacks/base/document_toggles_hack.qmd
+LOAD rmHacks/base/toolbar_compat.qmd
+
+;   LOAD rmHacks/document_clock_hack.qmd
+;   LOAD rmHacks/toolbar_pages_button_hack.qmd
+;   LOAD rmHacks/new_notebook_date_name_hack.qmd
+;   LOAD rmHacks/alphabetize_tags_list_hack.qmd
+;   LOAD rmHacks/document_pages_hide_hack.qmd
+;   LOAD rmHacks/toggle_toolbar_gesture_hack.qmd
+;   LOAD rmHacks/switch_pens_gesture_hack.qmd
+;   LOAD rmHacks/toggle_eraser_gesture_hack.qmd
+;   LOAD rmHacks/force_refresh_gesture_hack.qmd
+;   LOAD rmHacks/auto_new_page_hack.qmd
+;   LOAD rmHacks/bookmarks.qmd
+;   LOAD rmHacks/last_document_gesture_hack.qmd
+;   LOAD rmHacks/more_stroke_sizes_hack.qmd
+;   LOAD rmHacks/more_colors_hack.qmd
+;   LOAD rmHacks/document_battery_wifi_hack.qmd
+;   LOAD rmHacks/share_tool_toggle_wifi_hack.qmd
+;   LOAD rmHacks/share_tool_toggle_all_gestures_hack.qmd
+;   LOAD rmHacks/light_sleep_icon_hack.qmd
+;   LOAD rmHacks/share_tool_settings_hack.qmd
+;   LOAD rmHacks/screenshare_everywhere_hack.qmd
+;   LOAD rmHacks/all_mono_hack.qmd
+;   LOAD rmHacks/toolbar_width_hack.qmd
+;   LOAD rmHacks/hide_text_tool_hack.qmd
+;   LOAD rmHacks/navigator_compressed_list_hack.qmd
+;   
+;   LOAD rmHacks/split_doc/split_doc_main.qmd
+;   LOAD rmHacks/table_of_contents_button_hack.qmd
+;   LOAD rmHacks/hide_close_button_hack.qmd

@@ -1,0 +1,33 @@
+SLOT rmhConfigAliases
+    INSERT {
+        property ~&214620122227&~ rmhDocumentTogglesHack: ~&7083272960857&~.rmhDocumentTogglesHack
+    }
+END SLOT
+
+SLOT rmhConfigProperties
+    INSERT {
+        property ~&6503679477&~ rmhDocumentTogglesHack: ~&6504329801&~
+    }
+END SLOT
+
+SLOT rmhSettingsToolbarModel
+    INSERT {
+        {
+            ~&214632764553&~: "Document-level toggle buttons",
+            ~&478136262235079021&~: "Additional toggle buttons accessible from the document-level settings menu.",
+            ~&233723734822480&~: ~&7082020628281&~.rmhDocumentTogglesHack,
+            ~&7082453764199&~: () => { ~&7082020628281&~.rmhDocumentTogglesHack = !~&7082020628281&~.rmhDocumentTogglesHack },
+        },
+    }
+END SLOT
+
+AFFECT [[11704595946725378272]]
+    IMPORT [[7082546018834]] 1.0
+    IMPORT [[7011720518960720364]] 1.0
+    IMPORT [[4186407363650670104]] 1.0
+    IMPORT [[3056995282752331495]] 1.0
+
+    TRAVERSE [[454089850271038938]] > [[254480451320573660]]#[[16710723433319324941]] > [[14125623155555875541]]
+        LOCATE AFTER ALL INSERT SLOT rmhShareToolFoldoutModel
+    END TRAVERSE
+END AFFECT
