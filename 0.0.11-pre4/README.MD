@@ -31,5 +31,5 @@ Current state of the port:
 - ❌table_of_contents_button_hack.qmd
 - ❌toggle_eraser_gesture_hack.qmd
 - ❌toggle_toolbar_gesture_hack.qmd
-- ❌toolbar_pages_button_hack.qmd
+- ✅ toolbar_pages_button_hack.qmd
 - ❌toolbar_width_hack.qmd
