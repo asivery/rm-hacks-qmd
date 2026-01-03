@@ -14,7 +14,7 @@ LOAD rmHacks/document_pages_hide_hack.qmd
 LOAD rmHacks/toggle_toolbar_gesture_hack.qmd
 LOAD rmHacks/toggle_eraser_gesture_hack.qmd
 LOAD rmHacks/switch_pens_gesture_hack.qmd
-;   LOAD rmHacks/force_refresh_gesture_hack.qmd
+LOAD rmHacks/force_refresh_gesture_hack.qmd
 ;   LOAD rmHacks/auto_new_page_hack.qmd
 ;   LOAD rmHacks/bookmarks.qmd
 ;   LOAD rmHacks/last_document_gesture_hack.qmd
