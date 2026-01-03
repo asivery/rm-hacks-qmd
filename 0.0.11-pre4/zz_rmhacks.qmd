@@ -17,7 +17,7 @@ LOAD rmHacks/switch_pens_gesture_hack.qmd
 LOAD rmHacks/force_refresh_gesture_hack.qmd
 LOAD rmHacks/auto_new_page_hack.qmd
 LOAD rmHacks/bookmarks.qmd
-;   LOAD rmHacks/last_document_gesture_hack.qmd
+LOAD rmHacks/last_document_gesture_hack.qmd
 ;   LOAD rmHacks/more_stroke_sizes_hack.qmd
 ;   LOAD rmHacks/more_colors_hack.qmd
 ;   LOAD rmHacks/document_battery_wifi_hack.qmd
