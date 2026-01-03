@@ -1,0 +1,38 @@
+;  TODO there are numerous other places where tags could be sorted
+;  1. in document tag list within the document
+;  2. in document tag list in Menu/Tags
+
+SLOT rmhConfigProperties
+    INSERT {
+        property ~&6503679477&~ rmhAlphabetizeTagsListHack: ~&6504329801&~
+    }
+END SLOT
+
+SLOT rmhConfigAliases
+    INSERT {
+        property ~&214620122227&~ rmhAlphabetizeTagsListHack: ~&7083272960857&~.rmhAlphabetizeTagsListHack
+    }
+END SLOT
+
+SLOT rmhSettingsGeneralModel
+    INSERT {
+        {
+            ~&214632764553&~: "Alphabetize tags filter list",
+            ~&478136262235079021&~: "Sort the tags used for filtering in alphabetical order within the 'Menu/Tags' view",
+            ~&233723734822480&~: ~&7082020628281&~.rmhAlphabetizeTagsListHack,
+            ~&7082453764199&~: () => { ~&7082020628281&~.rmhAlphabetizeTagsListHack = !~&7082020628281&~.rmhAlphabetizeTagsListHack },
+        },
+    }
+END SLOT
+
+AFFECT [[6411856871849251445]]
+    TRAVERSE [[3819512207256720568]] > [[7081293658967]]#[[7082729395218]] > [[6502786168]] > [[6502669985]] > [[7712155293725601]]
+        REPLACE [[214634455770]] WITH {
+            ~&214634455770&~: {
+                ~&214622607920&~ ~&6503736259&~ = [...~&6504254477&~.~&7713598774719990&~];
+                ~&5972376&~(~&7082020628281&~.rmhAlphabetizeTagsListHack) ~&6503736259&~.~&6504290513&~();
+                ~&7083121450889&~ ~&6503736259&~;
+            }
+        }
+    END TRAVERSE
+END AFFECT
