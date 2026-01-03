@@ -1,5 +1,4 @@
-;  TODO various concerning "TypeError: Cannot read property 'XYZ' of null" warnings shown in console
-;  TODO toolbar handling may be somewhat broken, likely related to those warnings
+;  TODO make toolbar_buttons_pages_hack play nicely with this
 
 SLOT rmhConfigProperties
     INSERT {
@@ -305,6 +304,20 @@ AFFECT [[1224665461898798997]]
             LOCATE BEFORE { .~&214622501183&~() }
             REPLACE LOCATED WITH { .~&214622501183&~(~&6504329801&~) }
         END REBUILD
+
+        TRAVERSE [[5728643844066569666]]
+            LOCATE AFTER ALL
+            INSERT {
+                ~&233681166222244&~ { ~&254547437090201330&~.~&233745975898428&~: ~&6504254477&~.~&233745975898428&~ }
+            }
+        END TRAVERSE
+
+        TRAVERSE [[6502786168]]#[[15549782143769420265]] > [[244143882610427464]]
+            LOCATE AFTER ALL
+            INSERT {
+                ~&233681166222244&~ { ~&8399923449641527401&~.~&233745975898428&~: ~&6504254477&~.~&233745975898428&~ }
+            }
+        END TRAVERSE
     END TRAVERSE
 END AFFECT
 
