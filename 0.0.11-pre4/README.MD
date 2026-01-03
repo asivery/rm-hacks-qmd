@@ -9,16 +9,16 @@ Current state of the port:
 
 - ❌all_mono_hack.qmd
 - ✅ alphabetize_tags_list_hack.qmd
-- ❌auto_new_page_hack.qmd
+- ✅ auto_new_page_hack.qmd
 - ❌bookmarks.qmd
 - ❌document_battery_wifi_hack.qmd
 - ✅ document_clock_hack.qmd
 - ✅ document_pages_hide_hack.qmd
-- ❌force_refresh_gesture_hack.qmd
+- ✅ force_refresh_gesture_hack.qmd
 - ❌hide_close_button_hack.qmd
 - ❌hide_text_tool_hack.qmd
 - ❌last_document_gesture_hack.qmd
-- ❌switch_pens_gesture_hack.qmd
+- ✅ switch_pens_gesture_hack.qmd
 - ❌light_sleep_icon_hack.qmd
 - ❌more_stroke_sizes_hack.qmd
 - ❌more_colors_hack.qmd
