@@ -30,7 +30,7 @@ LOAD rmHacks/document_pages_hide_hack.qmd
 ;   LOAD rmHacks/toolbar_width_hack.qmd
 ;   LOAD rmHacks/hide_text_tool_hack.qmd
 ;   LOAD rmHacks/navigator_compressed_list_hack.qmd
-;   
-;   LOAD rmHacks/split_doc/split_doc_main.qmd
+  
+LOAD rmHacks/split_doc/split_doc_main.qmd
 ;   LOAD rmHacks/table_of_contents_button_hack.qmd
 ;   LOAD rmHacks/hide_close_button_hack.qmd

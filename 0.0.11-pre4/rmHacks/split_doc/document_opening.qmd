@@ -1,0 +1,72 @@
+AFFECT [[2328484894988065446]]
+    TRAVERSE [[8397788359424131273]]
+        REBUILD [[7713401573498017]]
+            LOCATE BEFORE ALL INSERT {
+                ~&214622607920&~ docView = ~&7082020628281&~.openInSecondDoc ? rmhDocumentViewSplit : ~&15793094956877902211&~;
+                ~&233724020023100&~.~&197092075&~("Opening in " + (~&7082020628281&~.openInSecondDoc ? ~&'7083159968677&~ : ~&'6504059342&~) + " document");
+                ~&7082020628281&~.openInSecondDoc = ~&214625660372&~;
+            }
+            REPLACE { ~&15793094956877902211&~ } WITH { docView }
+        END REBUILD
+
+        REBUILD [[6622264625199152281]]
+            LOCATE BEFORE ALL
+            INSERT { ~&214622607920&~ docView = ~&7082020628281&~.openInSecondDoc ? rmhDocumentViewSplit : ~&15793094956877902211&~; }
+            REPLACE { ~&15793094956877902211&~ } WITH { docView }
+        END REBUILD
+
+        TRAVERSE [[428051690305612204]][.[[7083194890448]]=[[3136424308533489519]]]
+            REBUILD [[329520867991562103]]
+                LOCATE BEFORE ALL INSERT {
+                    ~&214622607920&~ docView = ~&7082020628281&~.openInSecondDoc ? rmhDocumentViewSplit : ~&15793094956877902211&~;
+                    ~&233724020023100&~.~&197092075&~("Opening in " + (~&7082020628281&~.openInSecondDoc ? ~&'7083159968677&~ : ~&'6504059342&~) + " document");
+                }
+                REPLACE { ~&15793094956877902211&~ } WITH { docView }
+
+                LOCATE BEFORE ALL
+                LOCATE BEFORE { ~&7083121450889&~; } ;  pageNumber >= 0 block
+                INSERT { ~&7082020628281&~.openInSecondDoc = ~&214625660372&~; }
+                LOCATE AFTER ALL
+                INSERT { ~&7082020628281&~.openInSecondDoc = ~&214625660372&~; }
+            END REBUILD
+        END TRAVERSE
+
+        TRAVERSE [[8397993708429497603]]#[[7713531976371484]] > [[8397993708429497603]]#[[7713694313857736]] > [[254495336496498420]]#[[254540341572282132]]
+            REPLACE [[15827444211591635392]] WITH {
+                ~&15827444211591635392&~: (~&214624950331&~) => {
+                    ~&5972376&~ (~&7082020628281&~.openInSecondDoc) {
+                        ~&6622264625199152281&~(~&214624950331&~, function() { rmhDocumentViewSplit.~&6503936152&~.~&16350670950752674586&~(~&214624950331&~) });
+                        ~&7082020628281&~.openInSecondDoc = ~&214625660372&~
+                        ~&233724020023100&~.~&197092075&~("Opened in second doc!");
+                    } ~&6503784146&~ {
+                        ~&6622264625199152281&~(~&214624950331&~, function() { ~&15793094956877902211&~.~&6503936152&~.~&16350670950752674586&~(~&214624950331&~) });
+                        ~&233724020023100&~.~&197092075&~("Opened in primary doc!");
+                    }
+                }
+            }
+
+            REPLACE [[11246284191331601274]] WITH {
+                ~&11246284191331601274&~: (~&214624950331&~, ~&6504167078&~) => {
+                    ~&5972376&~ (~&7082020628281&~.openInSecondDoc) {
+                        ~&6622264625199152281&~(~&214624950331&~, function() { rmhDocumentViewSplit.~&6503936152&~.~&8026566110202390612&~(~&214624950331&~, ~&6504167078&~) });
+                        ~&7082020628281&~.openInSecondDoc = ~&214625660372&~
+                        ~&233724020023100&~.~&197092075&~("Opened in second doc!");
+                    } ~&6503784146&~ {
+                        ~&6622264625199152281&~(~&214624950331&~, function() { ~&15793094956877902211&~.~&6503936152&~.~&8026566110202390612&~(~&214624950331&~, ~&6504167078&~) });
+                        ~&233724020023100&~.~&197092075&~("Opened in primary doc!");
+                    }
+                }
+            }
+        END TRAVERSE
+    END TRAVERSE
+END AFFECT
+
+;  XXX what is actually intended here??
+AFFECT [[8850026134298937527]]
+    TRAVERSE [[8397993708429497603]]
+        REBUILD [[11689254259907176254]]
+            LOCATE BEFORE { ~&7083121450889&~; } ;  not enough free space block ?? maybe incorrect
+            INSERT { ~&7082020628281&~.openInSecondDoc = ~&214625660372&~; }
+        END REBUILD
+    END TRAVERSE
+END AFFECT
