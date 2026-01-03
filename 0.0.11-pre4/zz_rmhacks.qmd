@@ -12,8 +12,8 @@ LOAD rmHacks/new_notebook_date_name_hack.qmd
 LOAD rmHacks/alphabetize_tags_list_hack.qmd
 LOAD rmHacks/document_pages_hide_hack.qmd
 LOAD rmHacks/toggle_toolbar_gesture_hack.qmd
-LOAD rmHacks/switch_pens_gesture_hack.qmd
 LOAD rmHacks/toggle_eraser_gesture_hack.qmd
+LOAD rmHacks/switch_pens_gesture_hack.qmd
 ;   LOAD rmHacks/force_refresh_gesture_hack.qmd
 ;   LOAD rmHacks/auto_new_page_hack.qmd
 ;   LOAD rmHacks/bookmarks.qmd
