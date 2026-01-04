@@ -32,4 +32,4 @@ Current state of the port:
 - ❌toggle_eraser_gesture_hack.qmd
 - ✅ toggle_toolbar_gesture_hack.qmd
 - ✅ toolbar_pages_button_hack.qmd
-- ❌toolbar_width_hack.qmd
+- ✅ toolbar_width_hack.qmd

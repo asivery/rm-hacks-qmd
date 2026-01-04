@@ -27,7 +27,7 @@ LOAD rmHacks/share_tool_toggle_all_gestures_hack.qmd
 ;   LOAD rmHacks/share_tool_settings_hack.qmd
 ;   LOAD rmHacks/screenshare_everywhere_hack.qmd
 ;   LOAD rmHacks/all_mono_hack.qmd
-;   LOAD rmHacks/toolbar_width_hack.qmd
+LOAD rmHacks/toolbar_width_hack.qmd
 ;   LOAD rmHacks/hide_text_tool_hack.qmd
 ;   LOAD rmHacks/navigator_compressed_list_hack.qmd
   
