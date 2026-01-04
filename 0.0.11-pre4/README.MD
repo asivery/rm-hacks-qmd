@@ -19,7 +19,7 @@ Current state of the port:
 - ❌hide_text_tool_hack.qmd
 - ❌last_document_gesture_hack.qmd
 - ✅ switch_pens_gesture_hack.qmd
-- ❌light_sleep_icon_hack.qmd
+- ✅ light_sleep_icon_hack.qmd
 - ✅ more_stroke_sizes_hack.qmd
 - ✅ more_colors_hack.qmd
 - ❌navigator_compressed_list_hack.qmd
