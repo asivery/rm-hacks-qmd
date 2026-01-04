@@ -26,7 +26,7 @@ Current state of the port:
 - ✅ new_notebook_date_name_hack.qmd
 - ❌screenshare_everywhere_hack.qmd
 - ❌share_tool_settings_hack.qmd
-- ❌share_tool_toggle_all_gestures_hack.qmd
+- ✅ share_tool_toggle_all_gestures_hack.qmd
 - ❌share_tool_toggle_wifi_hack.qmd (Does not turn on airplane mode.)
 - ❌table_of_contents_button_hack.qmd
 - ❌toggle_eraser_gesture_hack.qmd

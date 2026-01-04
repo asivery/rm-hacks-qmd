@@ -20,9 +20,9 @@ LOAD rmHacks/bookmarks.qmd
 LOAD rmHacks/last_document_gesture_hack.qmd
 LOAD rmHacks/more_stroke_sizes_hack.qmd
 LOAD rmHacks/more_colors_hack.qmd
-LOAD rmHacks/document_battery_wifi_hack.qmd
+LOAD rmHacks/document_battery_hack.qmd
 ;   LOAD rmHacks/share_tool_toggle_wifi_hack.qmd
-;   LOAD rmHacks/share_tool_toggle_all_gestures_hack.qmd
+LOAD rmHacks/share_tool_toggle_all_gestures_hack.qmd
 ;   LOAD rmHacks/light_sleep_icon_hack.qmd
 ;   LOAD rmHacks/share_tool_settings_hack.qmd
 ;   LOAD rmHacks/screenshare_everywhere_hack.qmd
