@@ -11,7 +11,7 @@ Current state of the port:
 - ✅ alphabetize_tags_list_hack.qmd
 - ✅ auto_new_page_hack.qmd
 - ✅ bookmarks.qmd
-- ❌document_battery_wifi_hack.qmd
+- ✅ document_battery_wifi_hack.qmd
 - ✅ document_clock_hack.qmd
 - ✅ document_pages_hide_hack.qmd
 - ✅ force_refresh_gesture_hack.qmd
