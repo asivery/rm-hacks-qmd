@@ -16,7 +16,7 @@ Current state of the port:
 - ✅ document_pages_hide_hack.qmd
 - ✅ force_refresh_gesture_hack.qmd
 - ❌hide_close_button_hack.qmd
-- ❌hide_text_tool_hack.qmd
+- ✅ hide_text_tool_hack.qmd
 - ✅ last_document_gesture_hack.qmd
 - ✅ switch_pens_gesture_hack.qmd
 - ✅ light_sleep_icon_hack.qmd
