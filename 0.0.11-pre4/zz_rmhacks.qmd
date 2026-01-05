@@ -1,5 +1,5 @@
 ;   rm-hacks-qmd v0.0.11-pre3
-VERSION [[17607111715072197239]]
+; VERSION 3.24.0.149
 
 LOAD rmHacks/base/global.qmd
 LOAD rmHacks/base/settings.qmd
@@ -32,5 +32,5 @@ LOAD rmHacks/hide_text_tool_hack.qmd
 LOAD rmHacks/navigator_compressed_list_hack.qmd
   
 LOAD rmHacks/split_doc/split_doc_main.qmd
-;   LOAD rmHacks/table_of_contents_button_hack.qmd
+LOAD rmHacks/table_of_contents_button_hack.qmd
 ;   LOAD rmHacks/hide_close_button_hack.qmd
