@@ -22,7 +22,7 @@ Current state of the port:
 - ✅ light_sleep_icon_hack.qmd
 - ✅ more_stroke_sizes_hack.qmd
 - ✅ more_colors_hack.qmd
-- ❌navigator_compressed_list_hack.qmd
+- ✅ navigator_compressed_list_hack.qmd
 - ✅ new_notebook_date_name_hack.qmd
 - ❓ screenshare_everywhere_hack.qmd
 - ✅ share_tool_settings_hack.qmd

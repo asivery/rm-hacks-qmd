@@ -1,0 +1,94 @@
+SLOT rmhConfigProperties
+    INSERT {
+        property ~&6503679477&~ rmhNavigatorCompressedListHack: ~&6504329801&~
+        property ~&6503679477&~ rmhNavigatorCompressedListMode: ~&6504329801&~
+    }
+END SLOT
+
+SLOT rmhConfigAliases
+    INSERT {
+        property ~&214620122227&~ rmhNavigatorCompressedListHack: ~&7083272960857&~.rmhNavigatorCompressedListHack
+        property ~&214620122227&~ rmhNavigatorCompressedListMode: ~&7083272960857&~.rmhNavigatorCompressedListMode
+    }
+END SLOT
+
+SLOT rmhSettingsGeneralModel
+    INSERT {
+        {
+           ~&214632764553&~: "Compressed files list",
+           ~&478136262235079021&~: "Add an option to the 'Sort by/View' dropdown menu to display the file list in a compressed mode",
+           ~&233723734822480&~: ~&7082020628281&~.rmhNavigatorCompressedListHack,
+           ~&7082453764199&~: () => { ~&7082020628281&~.rmhNavigatorCompressedListHack = !~&7082020628281&~.rmhNavigatorCompressedListHack },
+        },
+    }
+END SLOT
+
+AFFECT [[1937739096773363297]]
+    TRAVERSE [[3819512207256720568]] > [[254501108490678590]]#[[5880826671165513617]] > [[8397788359424131273]]#[[6938166708288531755]] > [[7081293658967]]#[[197082279]]
+        LOCATE AFTER [[3819512207256720568]]
+        INSERT {
+            ~&425121728314878811&~.~&7711519458928944&~ {
+                ~&233721384511543&~.~&12826966400293002612&~: ~&7083038346995&~.~&12826966400293002612&~
+                ~&5972374&~: rmhCompressedListButton
+                ~&6504315758&~: ~&6504222003&~("Compressed List")
+                ~&233748328658231&~: ~&7082020628281&~.rmhNavigatorCompressedListHack && ~&1656766700136969923&~.~&10600535383506682085&~ === ~&3109069364380601502&~.~&14543942701415045736&~.~&6502882469&~
+                ~&7082729686082&~: ~&233748328658231&~ ? ~&7082020628281&~.~&4766506380767575030&~ : 0
+                ~&233723734822480&~: ~&7082020628281&~.rmhNavigatorCompressedListMode
+                ~&254542236275632405&~: ~&7082020628281&~.rmhNavigatorCompressedListMode = ~&233723734822480&~
+
+                /* Keyboard Navigation */
+                function ~&7712792149454042&~() {
+                    ~&7082020628281&~.rmhNavigatorCompressedListMode = !~&7082020628281&~.rmhNavigatorCompressedListMode;
+                    ~&254551912359458949&~.~&214641748151&~();
+                }
+            }
+        }
+    END TRAVERSE
+END AFFECT
+
+AFFECT [[14057140251252381702]]
+    TRAVERSE [[18288960390210305070]]
+        REPLACE [[7082729686082]] WITH {
+            ~&7082729686082&~: ~&7082020628281&~.rmhNavigatorCompressedListHack && ~&7082020628281&~.rmhNavigatorCompressedListMode
+                ? ~&7082020628281&~.~&6283161521813480432&~
+                : (~&7082020628281&~.~&5774682069758874195&~ + ~&7082020628281&~.~&15578034493820432050&~)
+        }
+
+        TRAVERSE [[254501558939456351]]#[[197098625]] > [[7081645463424]]#[[8399601734368028265]]
+            REBUILD [[7082729686082]]
+                LOCATE BEFORE ALL
+                INSERT { ~&7082020628281&~.rmhNavigatorCompressedListHack && ~&7082020628281&~.rmhNavigatorCompressedListMode ? ~&7082020628281&~.~&3842193742606557678&~ : }
+            END REBUILD
+            REBUILD [[16021043814775702381]]
+                LOCATE BEFORE ALL
+                INSERT { ~&7082020628281&~.rmhNavigatorCompressedListHack && ~&7082020628281&~.rmhNavigatorCompressedListMode ? notebookIconComponent : }
+            END REBUILD
+        END TRAVERSE
+        TRAVERSE [[254501558939456351]]#[[197098625]] > [[14125623155555875541]]#[[7082545991543]] > [[254501558939456351]]#[[15537412169677751681]]
+            LOCATE BEFORE ALL INSERT { ~&233748328658231&~: !(~&7082020628281&~.rmhNavigatorCompressedListHack && ~&7082020628281&~.rmhNavigatorCompressedListMode) }
+        END TRAVERSE
+
+        LOCATE AFTER ALL
+        INSERT {
+            ~&254480451320573660&~ {
+                ~&5972374&~: notebookIconComponent
+                ~&6502786168&~ {
+                    ~&214646099849&~: ~&7083038346995&~.~&214646099849&~
+                    ~&7082729686082&~: ~&7083038346995&~.~&7082729686082&~
+                    ~&425121728314878811&~.~&6502767986&~ {
+                        ~&5972374&~: ~&7713132905653537&~
+                        ~&233721384511543&~.~&7712879746914881&~: ~&7083038346995&~
+                        ~&6504284228&~: ~&7082020628281&~.~&3842193742606557678&~
+                        ~&7083172477658&~: {
+                            ~&7083181535963&~(~&7713268673447380&~.~&7713012672604043&~) {
+                                ~&6503700293&~ ~&7081371018502&~.~&7711648881278795&~.~&197061219&~: ~&7083121450889&~ ~&"8609871304211220143&~;
+                                ~&6503700293&~ ~&7081371018502&~.~&7711648881278795&~.~&6502638581&~: ~&7083121450889&~ ~&"57216753304735040&~;
+                            }
+                            ~&7083121450889&~ ~&"8609871731041592465&~;
+                        }
+                    }
+                }
+            }
+        }
+    END TRAVERSE
+END AFFECT
