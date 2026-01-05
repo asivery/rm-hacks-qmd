@@ -1,0 +1,68 @@
+SLOT rmhConfigProperties
+    INSERT {
+        property ~&6503679477&~ rmhLastDocumentGestureHack: ~&6504329801&~
+    }
+END SLOT
+
+SLOT rmhConfigAliases
+    INSERT {
+        property ~&214620122227&~ rmhLastDocumentGestureHack: ~&7083272960857&~.rmhLastDocumentGestureHack
+    }
+END SLOT
+
+SLOT rmhSettingsGesturesModel
+    INSERT {
+        {
+           ~&214632764553&~: "Gesture to open previous document",
+           ~&478136262235079021&~: "Swipe two fingers up from the bottom of the page to open previously edited document",
+           ~&233723734822480&~: ~&7082020628281&~.rmhLastDocumentGestureHack,
+           ~&7082453764199&~: () => { ~&7082020628281&~.rmhLastDocumentGestureHack = !~&7082020628281&~.rmhLastDocumentGestureHack },
+        },
+    }
+END SLOT
+
+AFFECT [[17298303916558156758]]
+    TRAVERSE [[254504370080162629]]
+        LOCATE AFTER ALL
+        INSERT {
+            ~&8545339034058226003&~ {
+                ~&5972374&~: rmhSwipeUpForLastDocument
+                ~&8399878573055752961&~: "rmhLastDocument"
+                ~&7712927726759444&~: 0.3 * ~&254549375155946341&~.~&496707965879903317&~
+                ~&254526613107157226&~: ~&5971598&~.~&214638019283&~(0, -1)
+                ~&6503646466&~: ~&5971598&~.~&6504243191&~(0, ~&254549375155946341&~.~&7082729686082&~ - ~&254549375155946341&~.~&7712963399941241&~, ~&254549375155946341&~.~&214646099849&~, ~&254549375155946341&~.~&7712963399941241&~)
+                ~&233727659172727&~: 2
+                ~&233726547792244&~: ~&7082020628281&~.rmhAllGesturesToggle && ~&7082020628281&~.rmhLastDocumentGestureHack && !~&254549375155946341&~.~&16735792760298061570&~
+                ~&495358363329399331&~: ~&6504391364&~.rmhOpenLastDocument()
+            }
+        }
+    END TRAVERSE
+END AFFECT
+
+AFFECT [[11806562588218124596]]
+    TRAVERSE [[8397993708429497603]]
+        LOCATE BEFORE ALL
+        INSERT { signal rmhOpenLastDocument }
+    END TRAVERSE
+END AFFECT
+
+AFFECT [[1224665461898798997]]
+    TRAVERSE [[8397993708429497603]] > [[5728643844066569666]]
+        LOCATE AFTER ALL
+        INSERT { onRmhOpenLastDocument: openLastDocument() }
+    END TRAVERSE
+    TRAVERSE [[8397993708429497603]]
+        LOCATE AFTER ALL INSERT {
+            function openLastDocument() {
+                ~&214622607920&~ recentDocumentId = isSecondDoc ? ~&7082020628281&~.rmhPreviousSplitDocId : ~&7082020628281&~.rmhPreviousMainDocId
+                ~&5972376&~ (!recentDocumentId || recentDocumentId === "") ~&7083121450889&~
+
+                ~&2918312801265623842&~.~&15633749529890334145&~(~&7712934851008712&~, ~&477346483278306569&~);
+
+                ~&5972376&~(isSecondDoc) ~&7082020628281&~.openInSecondDoc = ~&6504329801&~
+                ~&214622607920&~ recentDocument = ~&233694067165438&~.~&8399431778896295215&~(recentDocumentId)
+                ~&254540341572282132&~.~&7486439855378384899&~(recentDocument)
+            }
+        }
+    END TRAVERSE
+END AFFECT

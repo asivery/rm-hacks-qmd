@@ -1,0 +1,35 @@
+SLOT rmhConfigProperties INSERT {
+    property ~&6503679477&~ rmhHideCloseButtonHack: ~&6504329801&~
+} END SLOT
+
+SLOT rmhConfigAliases INSERT {
+    property ~&214620122227&~ rmhHideCloseButtonHack: ~&7083272960857&~.rmhHideCloseButtonHack
+} END SLOT
+
+SLOT rmhSettingsDocumentsModel
+    INSERT {
+        {
+           ~&214632764553&~: "Hide document close button (x)",
+           ~&478136262235079021&~: "It's still possible to close a document by swiping one finger down from the top",
+           ~&233723734822480&~: ~&7082020628281&~.rmhHideCloseButtonHack,
+           ~&7082453764199&~: () => { ~&7082020628281&~.rmhHideCloseButtonHack = !~&7082020628281&~.rmhHideCloseButtonHack },
+        },
+    }
+END SLOT
+
+AFFECT [[11313888899523275277]]
+    TRAVERSE [[8397993708429497603]] > [[7081645463424]]#[[476924601591820571]]
+        LOCATE BEFORE ALL INSERT { ~&233748328658231&~: !~&7082020628281&~.rmhHideCloseButtonHack }
+    END TRAVERSE
+
+    TRAVERSE [[8397993708429497603]]
+        REBUILD [[7083177690781]]
+            LOCATE BEFORE ALL
+            REPLACE {
+                ~&233721384511543&~.~&499747351624466981&~: ~&6504254477&~.~&233736698734376&~.~&214646099849&~
+            } WITH {
+                ~&233721384511543&~.~&499747351624466981&~: ~&7082020628281&~.rmhHideCloseButtonHack ? 0 : ~&6504254477&~.~&233736698734376&~.~&214646099849&~
+            }
+        END REBUILD
+    END TRAVERSE
+END AFFECT
