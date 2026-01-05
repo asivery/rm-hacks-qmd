@@ -3,7 +3,7 @@
 Current state of the port:
 
 - ✅ base
-- ❌split_doc
+- ✅ split_doc
 
 ---
 
@@ -17,7 +17,7 @@ Current state of the port:
 - ✅ force_refresh_gesture_hack.qmd
 - ❌hide_close_button_hack.qmd
 - ❌hide_text_tool_hack.qmd
-- ❌last_document_gesture_hack.qmd
+- ✅ last_document_gesture_hack.qmd
 - ✅ switch_pens_gesture_hack.qmd
 - ✅ light_sleep_icon_hack.qmd
 - ✅ more_stroke_sizes_hack.qmd
@@ -29,7 +29,7 @@ Current state of the port:
 - ✅ share_tool_toggle_all_gestures_hack.qmd
 - ❌share_tool_toggle_wifi_hack.qmd (Does not turn on airplane mode.)
 - ❌table_of_contents_button_hack.qmd
-- ❌toggle_eraser_gesture_hack.qmd
+- ✅ toggle_eraser_gesture_hack.qmd
 - ✅ toggle_toolbar_gesture_hack.qmd
 - ✅ toolbar_pages_button_hack.qmd
 - ✅ toolbar_width_hack.qmd
