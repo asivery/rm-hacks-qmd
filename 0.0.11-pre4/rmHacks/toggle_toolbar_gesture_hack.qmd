@@ -70,7 +70,7 @@ AFFECT [[1224665461898798997]]
         LOCATE AFTER [[14278829954804520394]]
         INSERT {
             onToggleToolbar: {
-                ~&15793094956877902211&~.requireToolbarToggle();
+                ~&15793094956877902211&~.~&6503936152&~.requireToolbarToggle();
             }
         }
     END TRAVERSE

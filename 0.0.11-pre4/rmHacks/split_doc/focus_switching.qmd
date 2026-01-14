@@ -25,12 +25,12 @@ AFFECT [[1224665461898798997]]
             signal askForToolbarSwitch
         }
         TRAVERSE [[5728643844066569666]]
-            LOCATE BEFORE ALL INSERT { askForToolbarSwitch: () => ~&15793094956877902211&~.askForToolbarSwitch() }
+            LOCATE BEFORE ALL INSERT { askForToolbarSwitch: () => ~&6504254477&~.askForToolbarSwitch() }
         END TRAVERSE
 
         REBUILD [[11332990887960589462]]
             LOCATE BEFORE ALL
-            INSERT { ~&15793094956877902211&~.askForToolbarSwitch() }
+            INSERT { ~&6504254477&~.askForToolbarSwitch() }
         END REBUILD
     END TRAVERSE
 END AFFECT

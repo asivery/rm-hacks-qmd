@@ -17,7 +17,7 @@ SLOT rmhSettingsDocumentsModel
     }
 END SLOT
 
-AFFECT [[2857280009207495592]]
+AFFECT [[11313888899523275277]]
     ;TRAVERSE FocusScope > ArkControls.ToolButton#closeButton
         ;REBUILD visible
         ;    LOCATE AFTER ALL INSERT { && !Values.rmhHideCloseButtonHack }

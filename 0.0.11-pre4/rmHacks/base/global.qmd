@@ -1,13 +1,10 @@
 AFFECT [[1658694193319203921]]
-    IMPORT Qt.labs.settings 1.0
+    IMPORT Qt.labs.settings [[180922.180921]]
     TRAVERSE [[6502786168]]
         LOCATE BEFORE ALL
         INSERT { ~&5972374&~: ~&7083272960857&~ }
 
-        TRAVERSE [[14919350785992198647]]
-            LOCATE AFTER ALL
-            INSERT { RmHacks }
-        END TRAVERSE
+        INSERT { readonly property ~&197088788&~ rmHacksSettingsPage: 100 }
 
         LOCATE AFTER ALL
         INSERT {
@@ -48,7 +45,7 @@ AFFECT [[1658694193319203921]]
             }
 
             function newFilename() {
-                ~&197102514&~ dt =         new         ~&6502586279&~()
+                ~&197102514&~ dt =              new              ~&6502586279&~()
 
                 ~&197102514&~ ~&6504494682&~ = dt.getFullYear()
                 ~&197102514&~ ~&214634467151&~ = (~&'180921&~ + (dt.getMonth()+1)).~&214641468857&~(-2)
@@ -63,13 +60,13 @@ AFFECT [[1658694193319203921]]
             readonly property bool isRm1: ~&8397887615021556741&~.~&8399372782522826843&~ === ~&8397887615021556741&~.~&214601156697&~
 
             function rmhReadFile(f, ~&7712874493159382&~) {
-                ~&214622607920&~ req =         new         XMLHttpRequest();
+                ~&214622607920&~ req =              new              XMLHttpRequest();
                 req.~&6504147419&~("GET", f);
                 req.onreadystatechange = () => {
                     ~&5972376&~ (req.readyState === XMLHttpRequest.DONE) {
                         ~&214622607920&~ res = req.responseText.~&7713616118928163&~();
                         ~&5972376&~ (!!res) {
-                            ~&214622607920&~ ~&6503736259&~ = ~&6502785411&~.~&214637526116&~(res);
+                            ~&214622607920&~ ~&6503736259&~ = ~&6502785411&~.parse(res);
                             ~&7712874493159382&~(~&6503736259&~);
                         } ~&6503784146&~ {
                             ~&7712874493159382&~(~&6504117156&~);
@@ -87,7 +84,7 @@ AFFECT [[1658694193319203921]]
             ]);
 
             function rmhWriteFile(f, ~&197094916&~) {
-                ~&214622607920&~ req =         new         XMLHttpRequest();
+                ~&214622607920&~ req =              new              XMLHttpRequest();
                 req.~&6504147419&~("PUT", f);
                 ~&214622607920&~ ~&6503736259&~ = ~&6502785411&~.~&254548178208422824&~(~&197094916&~);
                 req.~&6504279475&~(~&6503736259&~);

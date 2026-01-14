@@ -1,33 +1,35 @@
 SLOT rmhConfigAliases
     INSERT {
-        property alias rmhDocumentTogglesHack: values.rmhDocumentTogglesHack
+        property alias rmhDocumentTogglesHack: ~&7083272960857&~.rmhDocumentTogglesHack
     }
 END SLOT
 
 SLOT rmhConfigProperties
     INSERT {
-        property bool rmhDocumentTogglesHack: true
+        property bool rmhDocumentTogglesHack: ~&6504329801&~
     }
 END SLOT
 
 SLOT rmhSettingsToolbarModel
     INSERT {
         {
-            label: "Document-level toggle buttons",
-            description: "Additional toggle buttons accessible from the document-level settings menu.",
-            checked: Values.rmhDocumentTogglesHack,
-            action: () => { Values.rmhDocumentTogglesHack = !Values.rmhDocumentTogglesHack },
+            ~&214632764553&~: "Document-level toggle buttons",
+            ~&478136262235079021&~: "Additional toggle buttons accessible from the document-level settings menu.",
+            ~&233723734822480&~: ~&7082020628281&~.rmhDocumentTogglesHack,
+            ~&7082453764199&~: () => { ~&7082020628281&~.rmhDocumentTogglesHack = !~&7082020628281&~.rmhDocumentTogglesHack },
         },
     }
 END SLOT
 
-AFFECT /xofm/libs/toolbar/impl/SettingsMenu.qml
-    IMPORT common 1.0
-    IMPORT com.remarkable 1.0
-    IMPORT device.global 1.0
-    IMPORT device.ui.controls 1.0
+AFFECT [[11704595946725378272]]
+    IMPORT [[7082546018834]] [[180922.180921]]
+    IMPORT [[7011720518960720364]] [[180922.180921]]
+    IMPORT [[7082573613689.7082699062074]] [[180922.180921]]
+    IMPORT [[7082573613689.5972775.7712892662059645]] [[180922.180921]]
+    IMPORT [[6504469795.6504031891.507403874517851955]] [[180922.180921]]
+    IMPORT [[6504469795.6504031891.7713561876955258]] [[180922.180921]]
 
-    TRAVERSE ToolbarTool > Component#settingsComponent > ColumnLayout
+    TRAVERSE [[454089850271038938]] > [[254480451320573660]]#[[16710723433319324941]] > [[14125623155555875541]]
         LOCATE AFTER ALL INSERT SLOT rmhShareToolFoldoutModel
     END TRAVERSE
 END AFFECT
