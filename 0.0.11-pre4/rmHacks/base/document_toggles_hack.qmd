@@ -1,0 +1,33 @@
+SLOT rmhConfigAliases
+    INSERT {
+        property alias rmhDocumentTogglesHack: values.rmhDocumentTogglesHack
+    }
+END SLOT
+
+SLOT rmhConfigProperties
+    INSERT {
+        property bool rmhDocumentTogglesHack: true
+    }
+END SLOT
+
+SLOT rmhSettingsToolbarModel
+    INSERT {
+        {
+            label: "Document-level toggle buttons",
+            description: "Additional toggle buttons accessible from the document-level settings menu.",
+            checked: Values.rmhDocumentTogglesHack,
+            action: () => { Values.rmhDocumentTogglesHack = !Values.rmhDocumentTogglesHack },
+        },
+    }
+END SLOT
+
+AFFECT /xofm/libs/toolbar/impl/SettingsMenu.qml
+    IMPORT common 1.0
+    IMPORT com.remarkable 1.0
+    IMPORT device.global 1.0
+    IMPORT device.ui.controls 1.0
+
+    TRAVERSE ToolbarTool > Component#settingsComponent > ColumnLayout
+        LOCATE AFTER ALL INSERT SLOT rmhShareToolFoldoutModel
+    END TRAVERSE
+END AFFECT

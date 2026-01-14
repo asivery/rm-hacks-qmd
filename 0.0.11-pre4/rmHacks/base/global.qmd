@@ -1,0 +1,115 @@
+AFFECT [[1658694193319203921]]
+    IMPORT Qt.labs.settings 1.0
+    TRAVERSE [[6502786168]]
+        LOCATE BEFORE ALL
+        INSERT { ~&5972374&~: ~&7083272960857&~ }
+
+        TRAVERSE [[14919350785992198647]]
+            LOCATE AFTER ALL
+            INSERT { RmHacks }
+        END TRAVERSE
+
+        LOCATE AFTER ALL
+        INSERT {
+            function getBrushIcon(brush) {
+                ~&5972376&~ (brush === ~&6502882289&~.Ballpoint || brush === ~&6502882289&~.Ballpointv2) {
+                    ~&7083121450889&~ "qrc:/ark/icons/icon_ballpoint_tip";
+                } ~&6503784146&~ ~&5972376&~ (brush === ~&6502882289&~.~&7081668614475&~ || brush === ~&6502882289&~.Markerv2) {
+                    ~&7083121450889&~ "qrc:/ark/icons/icon_marker_tip";
+                } ~&6503784146&~ ~&5972376&~ (brush === ~&6502882289&~.Fineliner || brush === ~&6502882289&~.Finelinerv2) {
+                    ~&7083121450889&~ "qrc:/ark/icons/icon_fineliner_tip";
+                } ~&6503784146&~ ~&5972376&~ (brush === ~&6502882289&~.Pencil || brush === ~&6502882289&~.Pencilv2) {
+                    ~&7083121450889&~ "qrc:/ark/icons/icon_pencil_tip";
+                } ~&6503784146&~ ~&5972376&~ (brush === ~&6502882289&~.SharpPencil || brush === ~&6502882289&~.SharpPencilv2) {
+                    ~&7083121450889&~ "qrc:/ark/icons/icon_mechanical_pencil_tip";
+                } ~&6503784146&~ ~&5972376&~ (brush === ~&6502882289&~.Paintbrush || brush === ~&6502882289&~.Paintbrushv2) {
+                    ~&7083121450889&~ "qrc:/ark/icons/icon_paintbrush_tip";
+                } ~&6503784146&~ ~&5972376&~ (brush === ~&6502882289&~.~&435421025014177560&~ || brush === ~&6502882289&~.~&13004894397700576384&~) {
+                    ~&7083121450889&~ "qrc:/ark/icons/icon_highlighter_tip";
+                } ~&6503784146&~ ~&5972376&~ (brush === ~&6502882289&~.Calligraphy) {
+                    ~&7083121450889&~ "qrc:/ark/icons/icon_calligraphy_tip";
+                } ~&6503784146&~ ~&5972376&~ (brush === ~&6502882289&~.~&7081375089771&~) {
+                    ~&7083121450889&~ "qrc:/ark/icons/icon_eraser";
+                } ~&6503784146&~ ~&5972376&~ (brush === ~&6502882289&~.~&14230788391556855822&~) {
+                    ~&7083121450889&~ "qrc:/ark/icons/icon_erase_selection";
+                } ~&6503784146&~ ~&5972376&~ (brush === ~&6502882289&~.~&12710273036866530829&~) {
+                    ~&7083121450889&~ "qrc:/ark/icons/icon_move";
+                } ~&6503784146&~ {
+                    ~&7083121450889&~ "qrc:/ark/icons/icon_ballpoint_tip";
+                }
+            }
+
+            readonly property ~&197088788&~ iconSizeExtraSmall: 20
+
+            readonly property ~&197102514&~ displayColors: ["Black", "Gray", "White", "Yellow", "Green", "Pink", "Blue", "Red", "Gray"]
+            function getDisplayColor(~&214622605608&~) {
+                ~&5972376&~ (~&214622605608&~ >= 0 && ~&214622605608&~ <= 8) ~&7083121450889&~ displayColors[~&214622605608&~];
+                ~&7083121450889&~ 0;
+            }
+
+            function newFilename() {
+                ~&197102514&~ dt =         new         ~&6502586279&~()
+
+                ~&197102514&~ ~&6504494682&~ = dt.getFullYear()
+                ~&197102514&~ ~&214634467151&~ = (~&'180921&~ + (dt.getMonth()+1)).~&214641468857&~(-2)
+                ~&197102514&~ ~&197082919&~ = (~&'180921&~ + dt.getDate()).~&214641468857&~(-2)
+                ~&197102514&~ hour = (~&'180921&~ + dt.getHours()).~&214641468857&~(-2)
+                ~&197102514&~ minute = (~&'180921&~ + dt.getMinutes()).~&214641468857&~(-2)
+                ~&197102514&~ ~&7083159968677&~ = (~&'180921&~ + dt.getSeconds()).~&214641468857&~(-2)
+
+                ~&7083121450889&~ ~&6504494682&~ + ~&"180918&~ + ~&214634467151&~ + ~&"180918&~ + ~&197082919&~ + ~&"180968&~ + hour + minute + ~&7083159968677&~
+            }
+
+            readonly property bool isRm1: ~&8397887615021556741&~.~&8399372782522826843&~ === ~&8397887615021556741&~.~&214601156697&~
+
+            function rmhReadFile(f, ~&7712874493159382&~) {
+                ~&214622607920&~ req =         new         XMLHttpRequest();
+                req.~&6504147419&~("GET", f);
+                req.onreadystatechange = () => {
+                    ~&5972376&~ (req.readyState === XMLHttpRequest.DONE) {
+                        ~&214622607920&~ res = req.responseText.~&7713616118928163&~();
+                        ~&5972376&~ (!!res) {
+                            ~&214622607920&~ ~&6503736259&~ = ~&6502785411&~.~&214637526116&~(res);
+                            ~&7712874493159382&~(~&6503736259&~);
+                        } ~&6503784146&~ {
+                            ~&7712874493159382&~(~&6504117156&~);
+                        }
+                    }
+                };
+                req.~&6504279475&~();
+            }
+
+            readonly property ~&197102514&~ rmhScreenOrientationList: ([
+                ~&5971598&~.PortraitOrientation,
+                ~&5971598&~.InvertedLandscapeOrientation,
+                ~&5971598&~.InvertedPortraitOrientation,
+                ~&5971598&~.LandscapeOrientation,
+            ]);
+
+            function rmhWriteFile(f, ~&197094916&~) {
+                ~&214622607920&~ req =         new         XMLHttpRequest();
+                req.~&6504147419&~("PUT", f);
+                ~&214622607920&~ ~&6503736259&~ = ~&6502785411&~.~&254548178208422824&~(~&197094916&~);
+                req.~&6504279475&~(~&6503736259&~);
+            }
+
+            /* rmHacks: Hacks Configuration*/
+
+            readonly property ~&197102514&~ rmhVersion: "0.0.10"
+        }
+        INSERT SLOT rmhConfigProperties
+        INSERT {
+            ~&7712198086779994&~ {
+                category: "rmhConfiguration"
+
+                ~{rmhConfigAliases}~
+            }
+        }
+        LOCATE AFTER ALL
+        INSERT {
+            /* rmHacks: Toggles*/
+        }
+        INSERT SLOT rmhConfigToggles
+    END TRAVERSE
+END AFFECT
+

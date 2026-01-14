@@ -1,0 +1,54 @@
+SLOT rmhConfigProperties
+    INSERT {
+        property bool rmhDocumentGotoSettingsButtonHack: ~&6504329801&~
+    }
+END SLOT
+
+SLOT rmhConfigAliases
+    INSERT {
+        property alias rmhDocumentGotoSettingsButtonHack: ~&7083272960857&~.rmhDocumentGotoSettingsButtonHack
+    }
+END SLOT
+
+SLOT rmhShareToolFoldoutModel
+    INSERT {
+        ~&425121728314878811&~.~&432643201877711221&~ {
+            ~&214632764553&~: ~&6504222003&~("rM Hacks Settings")
+            ~&8399601734642709923&~: ~&"13873223703509114409&~
+            ~&15640708674084664669&~: ~&6504254477&~.~&15640708674084664669&~
+            ~&233748328658231&~: ~&7082020628281&~.rmhDocumentGotoSettingsButtonHack
+            ~&233726547792244&~: ~&7082020628281&~.rmhDocumentGotoSettingsButtonHack
+            ~&8400129127120172259&~: ~&7082020628281&~.rmhDocumentTogglesHack
+            ~&254542236275632405&~: () => { ~&6504254477&~.~&233745975898428&~.~&2766288418351025740&~.~&6504147419&~(~&"16962669231808009333&~, { ~&214629676161&~: ~&7082020628281&~.~&14919350785992198647&~.RmHacks }); }
+            ~&7081629735527&~.~&254529418434902000&~: ~&6504329801&~
+        }
+    }
+END SLOT
+
+SLOT rmhSettingsToolbarModel
+    INSERT {
+        {
+           ~&214632764553&~: "Hacks configuration button",
+           ~&478136262235079021&~: "Button located in the Share Tool menu for navigating to the rM Hacks configuration view",
+           ~&233723734822480&~: ~&7082020628281&~.rmhDocumentGotoSettingsButtonHack,
+           ~&7082453764199&~: () => { ~&7082020628281&~.rmhDocumentGotoSettingsButtonHack = !~&7082020628281&~.rmhDocumentGotoSettingsButtonHack },
+        },
+    }
+END SLOT
+
+AFFECT [[2857280009207495592]]
+    TRAVERSE [[8397993708429497603]]
+        LOCATE BEFORE ALL
+        INSERT {
+            property ~&197102514&~ ~&2766288418351025740&~
+        }
+    END TRAVERSE
+END AFFECT
+AFFECT [[1224665461898798997]]
+    TRAVERSE [[8397993708429497603]] > [[6502786168]]#[[15549782143769420265]] > [[233704648923420]]
+        LOCATE BEFORE ALL
+        INSERT {
+            ~&2766288418351025740&~: ~&15793094956877902211&~.~&2766288418351025740&~
+        }
+    END TRAVERSE
+END AFFECT

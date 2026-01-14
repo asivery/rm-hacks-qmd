@@ -1,0 +1,103 @@
+SLOT rmhConfigProperties
+    INSERT {
+        property bool rmhToggleToolbarGestureHack: ~&6504329801&~
+    }
+END SLOT
+
+SLOT rmhConfigAliases
+    INSERT {
+        property alias rmhToggleToolbarGestureHack: ~&7083272960857&~.rmhToggleToolbarGestureHack
+    }
+END SLOT
+
+SLOT rmhSettingsGesturesModel
+    INSERT {
+        {
+           ~&214632764553&~: "Gesture to toggle toolbar",
+           ~&478136262235079021&~: "Swipe one finger down to open or close the toolbar",
+           ~&233723734822480&~: ~&7082020628281&~.rmhToggleToolbarGestureHack,
+           ~&7082453764199&~: () => { ~&7082020628281&~.rmhToggleToolbarGestureHack = !~&7082020628281&~.rmhToggleToolbarGestureHack },
+        },
+    }
+END SLOT
+
+AFFECT [[17298303916558156758]]
+    TRAVERSE [[254504370080162629]]
+        TRAVERSE [[8545339034058226003]]#[[16007489649639374748]]
+            REBUILD [[233726547792244]]
+                LOCATE AFTER ALL INSERT { && !~&7082020628281&~.rmhToggleToolbarGestureHack }
+            END REBUILD
+        END TRAVERSE
+
+        TRAVERSE [[8545339034058226003]]#[[14988939638410790761]]
+            REBUILD [[233726547792244]]
+                LOCATE AFTER ALL INSERT { && !~&7082020628281&~.rmhToggleToolbarGestureHack }
+            END REBUILD
+        END TRAVERSE
+
+        LOCATE AFTER [[8545339034058226003]]#[[14988939638410790761]]
+        INSERT {
+            ~&8545339034058226003&~ {
+                ~&5972374&~: openToolbarCustom
+                ~&8399878573055752961&~: "rmh-toogle-toolbar"
+                ~&254526613107157226&~: ~&5971598&~.~&214638019283&~(0, 1)
+                ~&6503646466&~: ~&5971598&~.~&6504243191&~(0, 0, ~&254549375155946341&~.~&214646099849&~, ~&254549375155946341&~.~&7082729686082&~)
+                ~&13245387760250501547&~: ~&6504329801&~
+                ~&233726547792244&~: ~&7082020628281&~.rmhAllGesturesToggle && ~&7082020628281&~.rmhToggleToolbarGestureHack && !~&254549375155946341&~.~&16735792760298061570&~
+                ~&233727659172727&~: 1
+                ~&7712927726759444&~: 100
+                ~&495358363329399331&~: ~&6504391364&~.toggleToolbar()
+            }
+        }
+    END TRAVERSE
+END AFFECT
+
+AFFECT [[11806562588218124596]]
+    TRAVERSE [[8397993708429497603]]
+        LOCATE AFTER [[7713405014271992]]
+        INSERT { signal toggleToolbar }
+    END TRAVERSE
+END AFFECT
+
+AFFECT [[1224665461898798997]]
+    TRAVERSE [[8397993708429497603]]
+        LOCATE BEFORE ALL INSERT {
+            signal requireToolbarSet(bool vis)
+            signal requireToolbarToggle
+        }
+    END TRAVERSE
+    TRAVERSE [[8397993708429497603]] > [[5728643844066569666]]#[[254547437090201330]]
+        LOCATE AFTER [[14278829954804520394]]
+        INSERT {
+            onToggleToolbar: {
+                ~&15793094956877902211&~.requireToolbarToggle();
+            }
+        }
+    END TRAVERSE
+END AFFECT
+
+AFFECT [[2328484894988065446]]
+    TRAVERSE [[8397788359424131273]] > [[8397993708429497603]]#[[7713531976371484]]
+        LOCATE BEFORE ALL
+        INSERT {
+            ~&428051690305612204&~ {
+                ~&7083194890448&~: ~&15793094956877902211&~.~&6503936152&~
+                function onRequireToolbarToggle() {
+                    setToolbarShown(!toolbarShown);
+                }
+                function onRequireToolbarSet(vis) {
+                    setToolbarShown(vis);
+                }
+            }
+            ~&428051690305612204&~ {
+                ~&7083194890448&~: rmhDocumentViewSplit.~&6503936152&~
+                function onRequireToolbarToggle() {
+                    setToolbarShown(!toolbarShown);
+                }
+                function onRequireToolbarSet(vis) {
+                    setToolbarShown(vis);
+                }
+            }
+        }
+    END TRAVERSE
+END AFFECT

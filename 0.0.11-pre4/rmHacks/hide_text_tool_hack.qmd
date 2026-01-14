@@ -1,0 +1,34 @@
+SLOT rmhConfigProperties
+    INSERT {
+        property bool rmhToolbarHideTextToolHack: ~&214625660372&~
+    }
+END SLOT
+
+SLOT rmhConfigAliases
+    INSERT {
+        property alias rmhToolbarHideTextToolHack: ~&7083272960857&~.rmhToolbarHideTextToolHack
+    }
+END SLOT
+
+SLOT rmhSettingsToolbarModel
+    INSERT {
+        {
+           ~&214632764553&~: "Hide text tool",
+           ~&478136262235079021&~: "The Text Tool will be hidden and will not interfere with your workflow",
+           ~&233723734822480&~: ~&7082020628281&~.rmhToolbarHideTextToolHack,
+           ~&7082453764199&~: () => { ~&7082020628281&~.rmhToolbarHideTextToolHack = !~&7082020628281&~.rmhToolbarHideTextToolHack },
+        },
+    }
+END SLOT
+
+AFFECT [[5772838938085887397]]
+    IMPORT [[7082546018834]] 1.0
+    TRAVERSE [[454089850271038938]]
+        REBUILD [[233748328658231]]
+            LOCATE AFTER ALL INSERT { && !~&7082020628281&~.rmhToolbarHideTextToolHack }
+        END REBUILD
+        REBUILD [[214641332312]]
+            LOCATE AFTER ALL INSERT { && !~&7082020628281&~.rmhToolbarHideTextToolHack }
+        END REBUILD
+    END TRAVERSE
+END AFFECT

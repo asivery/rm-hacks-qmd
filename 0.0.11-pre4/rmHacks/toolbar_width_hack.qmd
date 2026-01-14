@@ -1,0 +1,145 @@
+SLOT rmhConfigProperties
+    INSERT {
+        property bool rmhDecreaseToolbarWidthHack: ~&214625660372&~
+    }
+END SLOT
+
+SLOT rmhConfigAliases
+    INSERT {
+        property alias rmhDecreaseToolbarWidthHack: ~&7083272960857&~.rmhDecreaseToolbarWidthHack
+    }
+END SLOT
+
+SLOT rmhSettingsToolbarModel
+    INSERT {
+        {
+            ~&214632764553&~: "Decrease toolbar width",
+            ~&478136262235079021&~: "The toolbar width is decreased to 75% of its original size.",
+            ~&233723734822480&~: ~&7082020628281&~.rmhDecreaseToolbarWidthHack,
+            ~&7082453764199&~: () => {
+                ~&7082020628281&~.rmhDecreaseToolbarWidthHack = !~&7082020628281&~.rmhDecreaseToolbarWidthHack;
+            },
+        },
+    }
+END SLOT
+
+AFFECT [[1658694193319203921]]
+    TRAVERSE [[6502786168]]
+        REPLACE [[2833933926439989821]] WITH { property ~&197088788&~ ~&2833933926439989821&~: rmhDecreaseToolbarWidthHack ? 376 : 480 }
+        REPLACE [[7952810730495468795]] WITH { property ~&197088788&~ ~&7952810730495468795&~: rmhDecreaseToolbarWidthHack ? 298 : 376 }
+        REPLACE [[10749017317419834328]] WITH { property ~&197088788&~ ~&10749017317419834328&~: rmhDecreaseToolbarWidthHack ? ~&254477762679831355&~.~&214603824602&~.~&7713684474795983&~.~&7169487197506612278&~.~&214641496386&~ : ~&254477762679831355&~.~&214603824602&~.~&7713684474795983&~.~&7169487197506612278&~.~&214632782036&~ }
+        REPLACE [[2735755858717371325]] WITH { property ~&197088788&~ ~&2735755858717371325&~: rmhDecreaseToolbarWidthHack ? (30 + 84) * 5 : (30 + 84) * 7 }
+    END TRAVERSE
+END AFFECT
+
+AFFECT [[2857280009207495592]]
+    TRAVERSE [[8397993708429497603]]
+        LOCATE BEFORE ALL
+        INSERT {
+            property ~&197102514&~ ~&8830272664706272520&~: ~&6504117156&~
+        }
+        REBUILD [[233736698734376]]
+            LOCATE BEFORE ALL
+            INSERT { ~&7082020628281&~.rmhDecreaseToolbarWidthHack ? ~&5971598&~.~&6504284228&~(~&254477762679831355&~.~&214603824602&~.~&7713684474795983&~.~&7169487197506612278&~.~&214641496386&~, ~&254477762679831355&~.~&214603824602&~.~&7713684474795983&~.~&7169487197506612278&~.~&214641496386&~) : }
+        END REBUILD
+
+        TRAVERSE [[6502786168]]#[[233745975898428]] > [[8398044571386570029]]
+            TRAVERSE [[16948093199847579651]]
+                LOCATE BEFORE ALL
+                INSERT { property alias ~&254539530918227179&~: ~&8830272664706272520&~ }
+            END TRAVERSE
+            REDEFINE [[16948093199847579651]]
+                LOCATE BEFORE ALL
+                INSERT STREAM ? ~&254480451320573660&~ { ~&5972374&~: _hideShowButtonLarge ?
+                LOCATE AFTER ALL INSERT STREAM ? } ?
+            END REDEFINE
+            LOCATE AFTER [[254480451320573660]]#_hideShowButtonLarge
+            REPLICATE [[254480451320573660]]#_hideShowButtonLarge
+                TRAVERSE [[254480451320573660]]
+                    REPLACE [[5972374]] WITH { ~&5972374&~: _hideShowButtonSmall }
+                    TRAVERSE [[16948093199847579651]]
+                        LOCATE BEFORE ALL
+                        INSERT { ~&214641496386&~: ~&6504329801&~ }
+                        REPLACE [[5972374]] WITH { ~&5972374&~: hideShowButtonSmall}
+                    END TRAVERSE
+                END TRAVERSE
+            END REPLICATE
+            INSERT {
+                ~&7081645463424&~ {
+                    ~&5972374&~: hideShowLoader
+                    ~&214646099849&~: ~&7082020628281&~.~&10749017317419834328&~
+                    ~&7082729686082&~: ~&214646099849&~
+                    ~&7082453764421&~: ~&6504329801&~
+                    ~&16021043814775702381&~: ~&7082020628281&~.rmhDecreaseToolbarWidthHack ? _hideShowButtonSmall : _hideShowButtonLarge
+                    ~&7713401454751279&~: {
+                        ~&6504254477&~.~&8830272664706272520&~ = hideShowLoader.~&6503936152&~.~&254539530918227179&~;
+                    }
+                }
+            }
+        END TRAVERSE
+
+        ; Close button.
+        TRAVERSE [[16948093199847579651]]
+            REMOVE [[233721384511543]]
+        END TRAVERSE
+        REDEFINE [[16948093199847579651]]
+                LOCATE BEFORE ALL
+                INSERT STREAM ? ~&254480451320573660&~ { ~&5972374&~: _closeButtonLarge ?
+                LOCATE AFTER ALL INSERT STREAM ? } ?
+            END REDEFINE
+            LOCATE AFTER [[254480451320573660]]#_closeButtonLarge
+            REPLICATE [[254480451320573660]]#_closeButtonLarge
+                TRAVERSE [[254480451320573660]]
+                    REPLACE [[5972374]] WITH { ~&5972374&~: _closeButtonSmall }
+                    TRAVERSE [[16948093199847579651]]
+                        LOCATE BEFORE ALL
+                        INSERT { ~&214641496386&~: ~&6504329801&~ }
+                        REPLACE [[5972374]] WITH { ~&5972374&~: closeButtonSmall }
+                    END TRAVERSE
+                END TRAVERSE
+            END REPLICATE
+            INSERT {
+                ~&7081645463424&~ {
+                    ~&5972374&~: ~&476924601591820571&~
+                    ~&7082453764421&~: ~&6504329801&~
+                    ~&16021043814775702381&~: ~&7082020628281&~.rmhDecreaseToolbarWidthHack ? _closeButtonSmall : _closeButtonLarge
+                    ~&233721384511543&~ {
+                        ~&214640173127&~: ~&7083038346995&~.~&214640173127&~
+                        ~&197100796&~: ~&7083038346995&~.~&197100796&~
+                        ~&254549367831075482&~: ~&6504254477&~.~&9186017637277426630&~
+                    }
+                }
+            }
+
+    END TRAVERSE
+END AFFECT
+
+AFFECT [[7500157198132013414]]
+    IMPORT [[7082546018834]] 1.0
+    TRAVERSE [[7081645463424]] > [[254480451320573660]]#[[12920733285382795992]] > [[16948093199847579651]]
+        LOCATE BEFORE ALL
+        INSERT {
+            ~&214641496386&~: ~&7082020628281&~.rmhDecreaseToolbarWidthHack
+        }
+    END TRAVERSE
+END AFFECT
+
+AFFECT [[1868076860191395426]]
+    TRAVERSE [[8398116566483627918]]
+        LOCATE AFTER [[5972374]]
+        INSERT {
+            property bool ~&214641496386&~: ~&214625660372&~
+        }
+        REPLACE [[8399302391541421472]] WITH {
+            ~&8399302391541421472&~: ~&214641496386&~ ? ~&8398116566483627918&~.~&6503134244&~.~&214603546914&~ : ~&8398116566483627918&~.~&6503134244&~.~&214594832564&~
+        }
+    END TRAVERSE
+END AFFECT
+
+AFFECT [[2850686855228789517]]
+    ; Depends on import in more stroke sizes.
+    TRAVERSE [[454089850271038938]] > [[6502786168]]:[[233724020048228]] > [[254501108490678590]]#[[12684643442017195032]]
+        REBUILD [[214646099849]] LOCATE BEFORE ALL INSERT { ~&7082020628281&~.rmhDecreaseToolbarWidthHack ? 20 : } END REBUILD
+        REBUILD [[7082729686082]] LOCATE BEFORE ALL INSERT { ~&7082020628281&~.rmhDecreaseToolbarWidthHack ? 20 : } END REBUILD
+    END TRAVERSE
+END AFFECT
