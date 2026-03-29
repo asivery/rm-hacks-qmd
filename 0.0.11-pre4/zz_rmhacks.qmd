@@ -1,7 +1,5 @@
-; rm-hacks-qmd v0.0.11-pre3
-VERSION 3.22.0.64
-VERSION 3.22.0.65
-VERSION 3.22.4.2
+; rm-hacks-qmd v0.0.11-pre4
+VERSION 3.24.0.149
 
 LOAD rmHacks/base/global.qmd
 LOAD rmHacks/base/settings.qmd
@@ -11,7 +9,7 @@ LOAD rmHacks/base/toolbar_compat.qmd
 LOAD rmHacks/document_clock_hack.qmd
 LOAD rmHacks/toolbar_pages_button_hack.qmd
 LOAD rmHacks/new_notebook_date_name_hack.qmd
-LOAD rmHacks/alphabetize_tags_list_hack.qmd
+LOAD rmHacks/alphabetize_tags_list_hack.qmd ; Works i guess? IDK
 LOAD rmHacks/document_pages_hide_hack.qmd
 LOAD rmHacks/toggle_toolbar_gesture_hack.qmd
 LOAD rmHacks/switch_pens_gesture_hack.qmd
@@ -36,4 +34,3 @@ LOAD rmHacks/navigator_compressed_list_hack.qmd
 LOAD rmHacks/split_doc/split_doc_main.qmd
 LOAD rmHacks/table_of_contents_button_hack.qmd
 LOAD rmHacks/hide_close_button_hack.qmd
-LOAD rmHacks/floating.qmd

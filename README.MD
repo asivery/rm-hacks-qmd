@@ -33,7 +33,7 @@ to rm-hacks.
 
 ### Installation using qt-resource-rebuilder
 
-- Make sure you have `xovi` and `qt-resource-rebuilder` installed ([installation manual](https://github.com/asivery/rm-xovi-extensions/blob/master/INSTALL.MD)) and hashtab rebuilt.
+- Make sure you have `xovi` and `qt-resource-rebuilder` installed ([installation manual](https://github.com/asivery/rm-xovi-extensions#to-install-xovi)) and hashtab rebuilt.
 - Download this repository as code (green button labelled "Code", then "Download ZIP")
 - Choose the appropriate version for your device (refer to the compatibility chart below)
 - Copy all the contents of the directory (`zz_rmHacks.qmd` file and `rmHacks` directory) to `/home/root/xovi/exthome/qt-resource-rebuilder` on your tablet
@@ -50,11 +50,12 @@ to rm-hacks.
 If the new OS version is compatible with the same version of rm-hacks you have installed (refer to compatibility chart below), it is enough to replace the `zz_rmHacks.qmd` file on the tablet. Otherwise, follow the uninstallation process, then install the new version.
 
 ## Compatibility chart
-| Version       | qt-resource-rebuilder |      3.22.0.64    |      3.20.0.92    |      3.17.0.72    |
-|  :---:        |        :---:          |       :---:       |       :---:       |       :---:       |
-|**0.0.11-pre3**|>= v14-20092025        |:white_check_mark: |        :x:        |        :x:        |
-|**0.0.11-pre2**|>= v11-01072025        |        :x:        |:white_check_mark: |        :x:        |
-|**0.0.11-pre1**|>= v11-01072025        |        :x:        |        :x:        |:white_check_mark: |
+| Version       | qt-resource-rebuilder |     3.24.0.149    |      3.22.4.2     |      3.22.0.64    |      3.20.0.92    |      3.17.0.72    |
+|  :---:        |        :---:          |       :---:       |       :---:       |       :---:       |       :---:       |       :---:       |
+|**0.0.11-pre4**|>= v17-14012026        |:white_check_mark: |        :x:        |        :x:        |        :x:        |        :x:        |
+|**0.0.11-pre3**|>= v14-20092025        |        :x:        |:white_check_mark: |:white_check_mark: |        :x:        |        :x:        |
+|**0.0.11-pre2**|>= v11-01072025        |        :x:        |        :x:        |        :x:        |:white_check_mark: |        :x:        |
+|**0.0.11-pre1**|>= v11-01072025        |        :x:        |        :x:        |        :x:        |        :x:        |:white_check_mark: |
 
 The feature list of each version is available within that version's folder.
 
