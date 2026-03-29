@@ -1,14 +1,14 @@
 SLOT rmhConfigProperties
     INSERT {
-        property bool rmhNavigatorCompressedListHack: ~&6504329801&~
-        property bool rmhNavigatorCompressedListMode: ~&6504329801&~
+        property ~&6503679477&~ rmhNavigatorCompressedListHack: ~&6504329801&~
+        property ~&6503679477&~ rmhNavigatorCompressedListMode: ~&6504329801&~
     }
 END SLOT
 
 SLOT rmhConfigAliases
     INSERT {
-        property alias rmhNavigatorCompressedListHack: ~&7083272960857&~.rmhNavigatorCompressedListHack
-        property alias rmhNavigatorCompressedListMode: ~&7083272960857&~.rmhNavigatorCompressedListMode
+        property ~&214620122227&~ rmhNavigatorCompressedListHack: ~&7083272960857&~.rmhNavigatorCompressedListHack
+        property ~&214620122227&~ rmhNavigatorCompressedListMode: ~&7083272960857&~.rmhNavigatorCompressedListMode
     }
 END SLOT
 
@@ -27,7 +27,7 @@ AFFECT [[1937739096773363297]]
     TRAVERSE ?#[[6938166708288531755]] > [[7081293658967]]#[[197082279]]
         LOCATE AFTER [[3819512207256720568]]
         INSERT {
-            ~&425121728314878811&~.CheckBox {
+            ~&425121728314878811&~.~&7711519458928944&~ {
                 ~&233721384511543&~.~&12826966400293002612&~: ~&7083038346995&~.~&12826966400293002612&~
                 ~&5972374&~: rmhCompressedListButton
                 ~&6504315758&~: ~&6504222003&~("Compressed List")

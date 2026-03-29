@@ -1,12 +1,12 @@
 SLOT rmhConfigProperties
     INSERT {
-        property bool rmhForceRefreshGestureHack: ~&6504329801&~
+        property ~&6503679477&~ rmhForceRefreshGestureHack: ~&6504329801&~
     }
 END SLOT
 
 SLOT rmhConfigAliases
     INSERT {
-        property alias rmhForceRefreshGestureHack: ~&7083272960857&~.rmhForceRefreshGestureHack
+        property ~&214620122227&~ rmhForceRefreshGestureHack: ~&7083272960857&~.rmhForceRefreshGestureHack
     }
 END SLOT
 

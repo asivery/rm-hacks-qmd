@@ -1,12 +1,12 @@
 SLOT rmhConfigProperties
     INSERT {
-        property bool rmhNewNotebookDateNameHack: ~&6504329801&~
+        property ~&6503679477&~ rmhNewNotebookDateNameHack: ~&6504329801&~
     }
 END SLOT
 
 SLOT rmhConfigAliases
     INSERT {
-        property alias rmhNewNotebookDateNameHack: ~&7083272960857&~.rmhNewNotebookDateNameHack
+        property ~&214620122227&~ rmhNewNotebookDateNameHack: ~&7083272960857&~.rmhNewNotebookDateNameHack
     }
 END SLOT
 

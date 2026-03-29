@@ -1,12 +1,12 @@
 SLOT rmhConfigProperties
     INSERT {
-        property bool rmhLastDocumentGestureHack: ~&6504329801&~
+        property ~&6503679477&~ rmhLastDocumentGestureHack: ~&6504329801&~
     }
 END SLOT
 
 SLOT rmhConfigAliases
     INSERT {
-        property alias rmhLastDocumentGestureHack: ~&7083272960857&~.rmhLastDocumentGestureHack
+        property ~&214620122227&~ rmhLastDocumentGestureHack: ~&7083272960857&~.rmhLastDocumentGestureHack
     }
 END SLOT
 
@@ -57,11 +57,11 @@ AFFECT [[1224665461898798997]]
                 ~&214622607920&~ recentDocumentId = isSecondDoc ? ~&7082020628281&~.rmhPreviousSplitDocId : ~&7082020628281&~.rmhPreviousMainDocId
                 ~&5972376&~ (!recentDocumentId || recentDocumentId === "") ~&7083121450889&~
 
-                ~&2918312801265623842&~.setLastOpenedPage(~&7712934851008712&~, ~&477346483278306569&~);
+                ~&2918312801265623842&~.~&15633749529890334145&~(~&7712934851008712&~, ~&477346483278306569&~);
 
                 ~&5972376&~(isSecondDoc) ~&7082020628281&~.openInSecondDoc = ~&6504329801&~
                 ~&214622607920&~ recentDocument = ~&233694067165438&~.~&8399431778896295215&~(recentDocumentId)
-                ~&254540341572282132&~.~&7486439855378384899&~(recentDocument)
+                ~&254540341572282132&~.requestOpenDocument(recentDocument)
             }
         }
     END TRAVERSE

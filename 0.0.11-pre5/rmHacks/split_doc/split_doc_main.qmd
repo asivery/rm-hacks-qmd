@@ -3,30 +3,30 @@ SLOT rmhConfigProperties
         property ~&197088788&~ rmhSplitMode: ~&7082020628281&~.RmhSplittingMode.~&197060196&~
         property ~&197088788&~ rmhOverlayedMode: ~&7082020628281&~.RmhOverlayedMode.TopRight
         property ~&197088788&~ rmhSplitRatio: ~&7082020628281&~.RmhSplittingRatio.OneThird
-        property bool rmhSplitSwitch: ~&214625660372&~
+        property ~&6503679477&~ rmhSplitSwitch: ~&214625660372&~
         property ~&7083178290016&~ rmhCurrentSplitDocId: ""
         property ~&7083178290016&~ rmhPreviousSplitDocId: ""
         property ~&7083178290016&~ rmhCurrentMainDocId: ""
         property ~&7083178290016&~ rmhPreviousMainDocId: ""
         property ~&197088788&~ rmhLastSplitMode: rmhSplitMode
-        property bool rmhSplitDocHack: ~&6504329801&~
-        property bool rmhMainDocOpenButtonsHack: ~&6504329801&~
-        property bool openInSecondDoc: ~&214625660372&~
+        property ~&6503679477&~ rmhSplitDocHack: ~&6504329801&~
+        property ~&6503679477&~ rmhMainDocOpenButtonsHack: ~&6504329801&~
+        property ~&6503679477&~ openInSecondDoc: ~&214625660372&~
     }
 END SLOT
 
 SLOT rmhConfigAliases
     INSERT {
-        property alias rmhSplitDocHack: ~&7083272960857&~.rmhSplitDocHack
-        property alias rmhOverlayedMode: ~&7083272960857&~.rmhOverlayedMode
-        property alias rmhSplitRatio: ~&7083272960857&~.rmhSplitRatio
-        property alias rmhSplitSwitch: ~&7083272960857&~.rmhSplitSwitch
-        property alias rmhCurrentSplitDocId: ~&7083272960857&~.rmhCurrentSplitDocId
-        property alias rmhPreviousSplitDocId: ~&7083272960857&~.rmhPreviousSplitDocId
-        property alias rmhCurrentMainDocId: ~&7083272960857&~.rmhCurrentMainDocId
-        property alias rmhPreviousMainDocId: ~&7083272960857&~.rmhPreviousMainDocId
-        property alias rmhLastSplitMode: ~&7083272960857&~.rmhLastSplitMode
-        property alias rmhMainDocOpenButtonsHack: ~&7083272960857&~.rmhMainDocOpenButtonsHack
+        property ~&214620122227&~ rmhSplitDocHack: ~&7083272960857&~.rmhSplitDocHack
+        property ~&214620122227&~ rmhOverlayedMode: ~&7083272960857&~.rmhOverlayedMode
+        property ~&214620122227&~ rmhSplitRatio: ~&7083272960857&~.rmhSplitRatio
+        property ~&214620122227&~ rmhSplitSwitch: ~&7083272960857&~.rmhSplitSwitch
+        property ~&214620122227&~ rmhCurrentSplitDocId: ~&7083272960857&~.rmhCurrentSplitDocId
+        property ~&214620122227&~ rmhPreviousSplitDocId: ~&7083272960857&~.rmhPreviousSplitDocId
+        property ~&214620122227&~ rmhCurrentMainDocId: ~&7083272960857&~.rmhCurrentMainDocId
+        property ~&214620122227&~ rmhPreviousMainDocId: ~&7083272960857&~.rmhPreviousMainDocId
+        property ~&214620122227&~ rmhLastSplitMode: ~&7083272960857&~.rmhLastSplitMode
+        property ~&214620122227&~ rmhMainDocOpenButtonsHack: ~&7083272960857&~.rmhMainDocOpenButtonsHack
     }
 END SLOT
 
@@ -186,8 +186,8 @@ AFFECT [[2328484894988065446]]
 
                     ~&428051690305612204&~ {
                         ~&7083194890448&~: ~&233694067165438&~
-                        function ~&8789052782016896247&~(ids) {
-                            ~&5972376&~ (~&7712934851008712&~ && ids.~&7713146641368448&~(~&7712934851008712&~.~&5972374&~)) {
+                        function ~&8789052782016896247&~(~&197088457&~) {
+                            ~&5972376&~ (~&7712934851008712&~ && ~&197088457&~.~&7713146641368448&~(~&7712934851008712&~.~&5972374&~)) {
                                 ~&15793094956877902211&~.~&6503936152&~.~&214622501183&~();
                             }
                         }
@@ -283,7 +283,7 @@ AFFECT [[1224665461898798997]]
         LOCATE BEFORE ALL
         INSERT {
             /* rmhacks for split screen*/
-            property bool isSecondDoc: ~&214625660372&~
+            property ~&6503679477&~ isSecondDoc: ~&214625660372&~
             property ~&197102514&~ mainDocumentViewItem: ~&254550717068498203&~
             property ~&197102514&~ splitDocumentView: ~&254550717068498203&~
             property ~&197088788&~ firstItemHeight: ~&7082729686082&~
@@ -318,10 +318,10 @@ AFFECT [[11806562588218124596]]
     END TRAVERSE
 END AFFECT
 
-LOAD document_opening.qmd
-LOAD focus_switching.qmd
-LOAD no_orientation_switch.qmd
-LOAD size_recalculation.qmd
-LOAD layers_menu.qmd
-LOAD toolbar.qmd
-LOAD last_document_storage.qmd
+;LOAD document_opening.qmd
+;LOAD focus_switching.qmd
+;LOAD no_orientation_switch.qmd
+;LOAD size_recalculation.qmd
+;LOAD layers_menu.qmd
+;LOAD toolbar.qmd
+;LOAD last_document_storage.qmd

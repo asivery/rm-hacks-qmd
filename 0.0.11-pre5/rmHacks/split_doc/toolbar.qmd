@@ -16,8 +16,8 @@ AFFECT [[1224665461898798997]]
         LOCATE BEFORE ALL
         INSERT {
             property ~&197102514&~ ~&233745975898428&~: ~&6504117156&~
-            property alias toolbarComponent: toolbarComponent
-            property alias ~&7842069035455457876&~: ~&7842069035455457876&~
+            property ~&214620122227&~ toolbarComponent: toolbarComponent
+            property ~&214620122227&~ ~&7842069035455457876&~: ~&7842069035455457876&~
         }
 
         TRAVERSE [[6502786168]]#[[15549782143769420265]]
@@ -32,12 +32,12 @@ AFFECT [[1224665461898798997]]
     END TRAVERSE
 END AFFECT
 AFFECT [[2328484894988065446]]
-    IMPORT [[7011720518960720364]] [[180922.180921]]
+    IMPORT [[197082280.8400022150001312063]] [[180922.180921]]
     TRAVERSE [[8397788359424131273]]
         LOCATE BEFORE ALL INSERT {
-            property bool mainDocumentSelected: ~&6504329801&~
-            property bool toolbarShown: ~&6504329801&~
-            property bool anyToolbarButtonVisible: (~&15793094956877902211&~.~&233748328658231&~ || rmhDocumentViewSplit.~&233748328658231&~) && !~&15793094956877902211&~.~&6503936152&~?.~&17074068313272002312&~ && !rmhDocumentViewSplit.~&6503936152&~?.~&17074068313272002312&~
+            property ~&6503679477&~ mainDocumentSelected: ~&6504329801&~
+            property ~&6503679477&~ toolbarShown: ~&6504329801&~
+            property ~&6503679477&~ anyToolbarButtonVisible: (~&15793094956877902211&~.~&233748328658231&~ || rmhDocumentViewSplit.~&233748328658231&~) && !~&15793094956877902211&~.~&6503936152&~?.~&17074068313272002312&~ && !rmhDocumentViewSplit.~&6503936152&~?.~&17074068313272002312&~
             function setToolbarShown(~&180970&~) {
                 toolbarShown = ~&180970&~;
                 mainToolbar.~&6503936152&~.~&7712989577739634&~ = toolbarShown;

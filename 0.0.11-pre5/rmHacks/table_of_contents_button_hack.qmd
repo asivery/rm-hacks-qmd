@@ -1,12 +1,12 @@
 SLOT rmhConfigProperties
     INSERT {
-        property bool rmhTableOfContentsButtonHack: ~&6504329801&~
+        property ~&6503679477&~ rmhTableOfContentsButtonHack: ~&6504329801&~
     }
 END SLOT
 
 SLOT rmhConfigAliases
     INSERT {
-        property alias rmhTableOfContentsButtonHack: ~&7083272960857&~.rmhTableOfContentsButtonHack
+        property ~&214620122227&~ rmhTableOfContentsButtonHack: ~&7083272960857&~.rmhTableOfContentsButtonHack
     }
 END SLOT
 
@@ -24,7 +24,7 @@ END SLOT
 AFFECT [[6554413872610298131]]
     TRAVERSE [[8397788359424131273]]#[[15225781669996973588]]
         LOCATE AFTER [[214634455770]] INSERT {
-            property bool rmhStandalone: ~&214625660372&~
+            property ~&6503679477&~ rmhStandalone: ~&214625660372&~
             signal rmhBackClicked
         }
         TRAVERSE [[7081477062642]]#[[7082729395218]]

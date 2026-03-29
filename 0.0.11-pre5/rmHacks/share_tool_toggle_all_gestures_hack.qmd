@@ -1,5 +1,5 @@
 SLOT rmhConfigToggles INSERT {
-    property bool rmhAllGesturesToggle: ~&6504329801&~
+    property ~&6503679477&~ rmhAllGesturesToggle: ~&6504329801&~
 } END SLOT
 
 SLOT rmhShareToolFoldoutModel INSERT {
@@ -30,7 +30,7 @@ AFFECT [[17298303916558156758]]
             && ~&7082020628281&~.rmhAllGesturesToggle
         } END REBUILD END TRAVERSE
 
-        TRAVERSE [[13115067736778183785]]#[[8399390167135299501]] LOCATE BEFORE ALL INSERT {
+        TRAVERSE [[13115067736778183785]]#[[8399390167135299501]] REPLACE [[233726547792244]] WITH {
             ~&233726547792244&~: ~&7082020628281&~.rmhAllGesturesToggle
         } END TRAVERSE
 

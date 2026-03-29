@@ -1,12 +1,12 @@
 SLOT rmhConfigProperties
     INSERT {
-        property bool rmhLightSleepIconHack: ~&6504329801&~
+        property ~&6503679477&~ rmhLightSleepIconHack: ~&6504329801&~
     }
 END SLOT
 
 SLOT rmhConfigAliases
     INSERT {
-        property alias rmhLightSleepIconHack: ~&7083272960857&~.rmhLightSleepIconHack
+        property ~&214620122227&~ rmhLightSleepIconHack: ~&7083272960857&~.rmhLightSleepIconHack
     }
 END SLOT
 
@@ -21,8 +21,8 @@ SLOT rmhSettingsGeneralModel
     }
 END SLOT
 
-AFFECT [[4993120499307475167]]
-    IMPORT [[7011720518960720364]] [[180922.180921]]
+AFFECT /qt/qml/xofm/modules/powermanager/qml/sleep-window-banner.qml
+    IMPORT [[197082280.8400022150001312063]] [[180922.180921]]
     IMPORT [[7082546018834]] [[180922.180921]]
     IMPORT [[7082573613689.6504391364.7713561876955258]] [[180922.180921]]
     IMPORT [[7082573613689.7082699062074]] [[180922.180921]]
@@ -51,8 +51,8 @@ AFFECT [[4993120499307475167]]
         }
     END TRAVERSE
 END AFFECT
-AFFECT [[6012839950034866473]]
-    IMPORT [[7011720518960720364]] [[180922.180921]]
+AFFECT /src/xofm/modules/powermanager/qml/sleep-window-banner.qml
+    IMPORT [[197082280.8400022150001312063]] [[180922.180921]]
     IMPORT [[7082546018834]] [[180922.180921]]
     IMPORT [[7082573613689.6504391364.7713561876955258]] [[180922.180921]]
     IMPORT [[7082573613689.7082699062074]] [[180922.180921]]

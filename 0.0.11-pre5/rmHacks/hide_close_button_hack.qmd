@@ -1,9 +1,9 @@
 SLOT rmhConfigProperties INSERT {
-    property bool rmhHideCloseButtonHack: ~&6504329801&~
+    property ~&6503679477&~ rmhHideCloseButtonHack: ~&6504329801&~
 } END SLOT
 
 SLOT rmhConfigAliases INSERT {
-    property alias rmhHideCloseButtonHack: ~&7083272960857&~.rmhHideCloseButtonHack
+    property ~&214620122227&~ rmhHideCloseButtonHack: ~&7083272960857&~.rmhHideCloseButtonHack
 } END SLOT
 
 SLOT rmhSettingsDocumentsModel

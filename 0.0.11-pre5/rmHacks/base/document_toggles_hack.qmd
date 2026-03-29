@@ -1,12 +1,12 @@
 SLOT rmhConfigAliases
     INSERT {
-        property alias rmhDocumentTogglesHack: ~&7083272960857&~.rmhDocumentTogglesHack
+        property ~&214620122227&~ rmhDocumentTogglesHack: ~&7083272960857&~.rmhDocumentTogglesHack
     }
 END SLOT
 
 SLOT rmhConfigProperties
     INSERT {
-        property bool rmhDocumentTogglesHack: ~&6504329801&~
+        property ~&6503679477&~ rmhDocumentTogglesHack: ~&6504329801&~
     }
 END SLOT
 
@@ -23,7 +23,7 @@ END SLOT
 
 AFFECT [[11704595946725378272]]
     IMPORT [[7082546018834]] [[180922.180921]]
-    IMPORT [[7011720518960720364]] [[180922.180921]]
+    IMPORT [[197082280.8400022150001312063]] [[180922.180921]]
     IMPORT [[7082573613689.7082699062074]] [[180922.180921]]
     IMPORT [[7082573613689.5972775.7712892662059645]] [[180922.180921]]
     IMPORT [[6504469795.6504031891.507403874517851955]] [[180922.180921]]

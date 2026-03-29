@@ -1,12 +1,12 @@
 SLOT rmhConfigProperties
     INSERT {
-        property bool rmhAutoNewPageHack: ~&6504329801&~
+        property ~&6503679477&~ rmhAutoNewPageHack: ~&6504329801&~
     }
 END SLOT
 
 SLOT rmhConfigAliases
     INSERT {
-        property alias rmhAutoNewPageHack: ~&7083272960857&~.rmhAutoNewPageHack
+        property ~&214620122227&~ rmhAutoNewPageHack: ~&7083272960857&~.rmhAutoNewPageHack
     }
 END SLOT
 

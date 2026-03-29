@@ -1,12 +1,12 @@
 SLOT rmhConfigProperties
     INSERT {
-        property bool rmhAlphabetizeTagsListHack: ~&6504329801&~
+        property ~&6503679477&~ rmhAlphabetizeTagsListHack: ~&6504329801&~
     }
 END SLOT
 
 SLOT rmhConfigAliases
     INSERT {
-        property alias rmhAlphabetizeTagsListHack: ~&7083272960857&~.rmhAlphabetizeTagsListHack
+        property ~&214620122227&~ rmhAlphabetizeTagsListHack: ~&7083272960857&~.rmhAlphabetizeTagsListHack
     }
 END SLOT
 
@@ -22,7 +22,7 @@ SLOT rmhSettingsGeneralModel
 END SLOT
 
 AFFECT [[6411856871849251445]]
-    TRAVERSE [[3819512207256720568]] > [[7081293658967]]#[[7082729395218]] > [[6502786168]] > [[6502669985]] > [[7712155293725601]]
+    TRAVERSE [[3819512207256720568]] > [[7081293658967]]#[[7082729395218]] > [[6502786168]] > [[197063777]] > [[7711904883727328]]
         REPLACE [[214634455770]] WITH {
             ~&214634455770&~: {
                 ~&214622607920&~ ~&6503736259&~ = [...~&6504254477&~.~&7713598774719990&~];

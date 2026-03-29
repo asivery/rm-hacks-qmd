@@ -1,12 +1,12 @@
 SLOT rmhConfigProperties
     INSERT {
-        property bool rmhToggleToolbarGestureHack: ~&6504329801&~
+        property ~&6503679477&~ rmhToggleToolbarGestureHack: ~&6504329801&~
     }
 END SLOT
 
 SLOT rmhConfigAliases
     INSERT {
-        property alias rmhToggleToolbarGestureHack: ~&7083272960857&~.rmhToggleToolbarGestureHack
+        property ~&214620122227&~ rmhToggleToolbarGestureHack: ~&7083272960857&~.rmhToggleToolbarGestureHack
     }
 END SLOT
 
@@ -62,7 +62,7 @@ END AFFECT
 AFFECT [[1224665461898798997]]
     TRAVERSE [[8397993708429497603]]
         LOCATE BEFORE ALL INSERT {
-            signal requireToolbarSet(bool vis)
+            signal requireToolbarSet(~&6503679477&~ vis)
             signal requireToolbarToggle
         }
     END TRAVERSE

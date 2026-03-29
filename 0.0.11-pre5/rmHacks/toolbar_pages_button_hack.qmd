@@ -1,12 +1,12 @@
 SLOT rmhConfigProperties
     INSERT {
-        property bool rmhToolbarPagesButtonHack: ~&6504329801&~
+        property ~&6503679477&~ rmhToolbarPagesButtonHack: ~&6504329801&~
     }
 END SLOT
 
 SLOT rmhConfigAliases
     INSERT {
-        property alias rmhToolbarPagesButtonHack: ~&7083272960857&~.rmhToolbarPagesButtonHack
+        property ~&214620122227&~ rmhToolbarPagesButtonHack: ~&7083272960857&~.rmhToolbarPagesButtonHack
     }
 END SLOT
 

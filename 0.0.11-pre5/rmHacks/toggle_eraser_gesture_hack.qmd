@@ -1,12 +1,12 @@
 SLOT rmhConfigProperties
     INSERT {
-        property bool rmhToggleEraserGestureHack: ~&6504329801&~
+        property ~&6503679477&~ rmhToggleEraserGestureHack: ~&6504329801&~
     }
 END SLOT
 
 SLOT rmhConfigAliases
     INSERT {
-        property alias rmhToggleEraserGestureHack: ~&7083272960857&~.rmhToggleEraserGestureHack
+        property ~&214620122227&~ rmhToggleEraserGestureHack: ~&7083272960857&~.rmhToggleEraserGestureHack
     }
 END SLOT
 
@@ -64,8 +64,8 @@ AFFECT [[11313888899523275277]]
     TRAVERSE [[8397993708429497603]]
         LOCATE BEFORE ALL INSERT {
             function selectEraser() {
-                ~&197091758&~ ~&214624950331&~ = _editingTools.itemAt(3).~&6503936152&~;
-                ~&6504254477&~.~&233718999756776&~(~&214624950331&~, ~&233704648923420&~.~&8398583355955217966&~.DontActivate);
+                ~&197091758&~ ~&214624950331&~ = _editingTools.~&7082786471789&~(3).~&6503936152&~;
+                ~&6504254477&~.~&233718999756776&~(~&214624950331&~, ~&233704648923420&~.~&8398583355955217966&~.~&14176254790786929359&~);
                 ~&6504254477&~.~&501100168435426133&~ = ~&214624950331&~;
                 ~&6504254477&~.~&5107434981825242642&~(~&214624950331&~.~&197096108&~.~&6504326343&~);
             }

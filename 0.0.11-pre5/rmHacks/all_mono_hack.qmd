@@ -1,11 +1,11 @@
 SLOT rmhConfigProperties
     INSERT {
-        property bool rmhAllMonoEnabled: ~&214625660372&~
+        property ~&6503679477&~ rmhAllMonoEnabled: ~&214625660372&~
     }
 END SLOT
 SLOT rmhConfigAliases
     INSERT {
-        property alias rmhAllMonoEnabled: ~&7083272960857&~.rmhAllMonoEnabled
+        property ~&214620122227&~ rmhAllMonoEnabled: ~&7083272960857&~.rmhAllMonoEnabled
     }
 END SLOT
 

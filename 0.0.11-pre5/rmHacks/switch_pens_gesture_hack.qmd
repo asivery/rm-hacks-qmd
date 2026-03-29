@@ -1,12 +1,12 @@
 SLOT rmhConfigProperties
     INSERT {
-        property bool rmhLastToolsGestureHack: ~&6504329801&~
+        property ~&6503679477&~ rmhLastToolsGestureHack: ~&6504329801&~
     }
 END SLOT
 
 SLOT rmhConfigAliases
     INSERT {
-        property alias rmhLastToolsGestureHack: ~&7083272960857&~.rmhLastToolsGestureHack
+        property ~&214620122227&~ rmhLastToolsGestureHack: ~&7083272960857&~.rmhLastToolsGestureHack
     }
 END SLOT
 
@@ -67,13 +67,13 @@ AFFECT [[11313888899523275277]]
         LOCATE BEFORE ALL INSERT {
             function togglePens() {
                 ~&197091758&~ ~&214624950331&~;
-                ~&5972376&~(_editingTools.itemAt(0).~&6503936152&~ == ~&16536305558369217168&~) {
-                    ~&214624950331&~ = _editingTools.itemAt(1).~&6503936152&~;
+                ~&5972376&~(_editingTools.~&7082786471789&~(0).~&6503936152&~ == ~&16536305558369217168&~) {
+                    ~&214624950331&~ = _editingTools.~&7082786471789&~(1).~&6503936152&~;
                 } ~&6503784146&~ {
-                    ~&214624950331&~ = _editingTools.itemAt(0).~&6503936152&~;
+                    ~&214624950331&~ = _editingTools.~&7082786471789&~(0).~&6503936152&~;
                 }
                 ~&6504254477&~.~&501100168435426133&~ = ~&214624950331&~;
-                ~&6504254477&~.~&233718999756776&~(~&214624950331&~, ~&233704648923420&~.~&8398583355955217966&~.DontActivate);
+                ~&6504254477&~.~&233718999756776&~(~&214624950331&~, ~&233704648923420&~.~&8398583355955217966&~.~&14176254790786929359&~);
                 ~&6504254477&~.~&17088436279723538867&~(~&214624950331&~.~&197096108&~.~&6504326343&~);
             }
         }

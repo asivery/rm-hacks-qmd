@@ -1,12 +1,12 @@
 SLOT rmhConfigProperties
     INSERT {
-        property bool rmhToolbarHideTextToolHack: ~&214625660372&~
+        property ~&6503679477&~ rmhToolbarHideTextToolHack: ~&214625660372&~
     }
 END SLOT
 
 SLOT rmhConfigAliases
     INSERT {
-        property alias rmhToolbarHideTextToolHack: ~&7083272960857&~.rmhToolbarHideTextToolHack
+        property ~&214620122227&~ rmhToolbarHideTextToolHack: ~&7083272960857&~.rmhToolbarHideTextToolHack
     }
 END SLOT
 
