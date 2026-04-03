@@ -1,0 +1,148 @@
+AFFECT [[2328484894988065446]]
+    TRAVERSE [[8397788359424131273]] > [[8397993708429497603]]#[[7713531976371484]] > [[8397993708429497603]]#[[7713694313857736]]
+        LOCATE BEFORE ALL
+        INSERT {
+            signal rmhMoved
+
+            function recalcSplitSizes(){
+                ~&5972376&~ (!~&7082020628281&~.rmhSplitDocHack) {
+                    ~&7083121450889&~
+                }
+
+                ~&197102514&~ isVertical = ~&7082020628281&~.~&14593461789319363686&~;
+                ~&5972376&~ (~&7082020628281&~.rmhSplitMode == ~&7082020628281&~.RmhSplittingMode.~&197060196&~) {
+                    rmhDocumentViewSplit.~&214646099849&~ = 0
+                    rmhDocumentViewSplit.~&7082729686082&~ = 0
+                    ~&15793094956877902211&~.~&214646099849&~ = ~&15793094956877902211&~.~&7083038346995&~.~&214646099849&~
+                    ~&15793094956877902211&~.~&7082729686082&~ = ~&15793094956877902211&~.~&7083038346995&~.~&7082729686082&~
+                    ~&15793094956877902211&~.~&180993&~ = 0
+                    ~&15793094956877902211&~.~&180994&~ = 0
+                    mainDocumentSelected = ~&6504329801&~;
+                } ~&6503784146&~ {
+                    ~&5972376&~ (!rmhDocumentViewSplit.~&6503936152&~.~&7712934851008712&~ || ~&7082020628281&~.rmhCurrentSplitDocId == "") {
+                        ~&5972376&~ (~&7082020628281&~.rmhCurrentSplitDocId !== "") {
+                            rmhDocumentViewSplit.~&6503936152&~.~&16350670950752674586&~(~&233694067165438&~.~&8399431778896295215&~(~&7082020628281&~.rmhCurrentSplitDocId))
+                        } ~&6503784146&~ {
+                            ~&214622607920&~ ~&7712934851008712&~ = ~&2918312801265623842&~.quickSheets()
+                            ~&7712934851008712&~.~&18264705319832144597&~ = ~&7712934851008712&~.~&254543134818768527&~ -1
+                            rmhDocumentViewSplit.~&6503936152&~.~&16350670950752674586&~(~&7712934851008712&~)
+                        }
+                    }
+
+                    ~&5972376&~ (~&7082020628281&~.rmhSplitMode == ~&7082020628281&~.RmhSplittingMode.Divided) {
+                        ~&197102514&~ firstWidth = isVertical ? ~&214646099849&~
+                                                    : ~&7082020628281&~.rmhSplitRatio == ~&7082020628281&~.RmhSplittingRatio.Half ? ~&214646099849&~ / 2
+                                                    : ~&7082020628281&~.rmhSplitRatio == ~&7082020628281&~.RmhSplittingRatio.OneThird ? 2 * ~&214646099849&~ / 3
+                                                    : ~&7082020628281&~.rmhSplitRatio == ~&7082020628281&~.RmhSplittingRatio.OneFourth ? 3 * ~&214646099849&~ / 4
+                                                    : 4 * ~&214646099849&~ / 5
+                        ~&197102514&~ firstHeight = !isVertical ? ~&7082729686082&~
+                                                    : ~&7082020628281&~.rmhSplitRatio == ~&7082020628281&~.RmhSplittingRatio.Half ? ~&7082729686082&~ / 2
+                                                    : ~&7082020628281&~.rmhSplitRatio == ~&7082020628281&~.RmhSplittingRatio.OneThird ? 2 * ~&7082729686082&~ / 3
+                                                    : ~&7082020628281&~.rmhSplitRatio == ~&7082020628281&~.RmhSplittingRatio.OneFourth ? 3 * ~&7082729686082&~ / 4
+                                                    : 4 * ~&7082729686082&~ / 5
+                        ~&197102514&~ secondWidth = isVertical ? ~&214646099849&~
+                                                    : ~&7082020628281&~.rmhSplitRatio == ~&7082020628281&~.RmhSplittingRatio.Half ? ~&214646099849&~ / 2
+                                                    : ~&7082020628281&~.rmhSplitRatio == ~&7082020628281&~.RmhSplittingRatio.OneThird ? ~&214646099849&~ / 3
+                                                    : ~&7082020628281&~.rmhSplitRatio == ~&7082020628281&~.RmhSplittingRatio.OneFourth ? ~&214646099849&~ / 4
+                                                    : ~&214646099849&~ / 5
+                        ~&197102514&~ secondHeight = !isVertical ? ~&7082729686082&~
+                                                    : ~&7082020628281&~.rmhSplitRatio == ~&7082020628281&~.RmhSplittingRatio.Half ? ~&7082729686082&~ / 2
+                                                    : ~&7082020628281&~.rmhSplitRatio == ~&7082020628281&~.RmhSplittingRatio.OneThird ? ~&7082729686082&~ / 3
+                                                    : ~&7082020628281&~.rmhSplitRatio == ~&7082020628281&~.RmhSplittingRatio.OneFourth ? ~&7082729686082&~ / 4
+                                                    : ~&7082729686082&~ / 5
+                        ~&15793094956877902211&~.~&214646099849&~ = firstWidth
+                        ~&15793094956877902211&~.~&7082729686082&~ = firstHeight
+                        rmhDocumentViewSplit.~&214646099849&~ = secondWidth
+                        rmhDocumentViewSplit.~&7082729686082&~ = secondHeight
+
+                        ~&15793094956877902211&~.~&180993&~ = !~&7082020628281&~.rmhSplitSwitch ? 0
+                                            : isVertical ? 0
+                                            : ~&214646099849&~ - ~&15793094956877902211&~.~&214646099849&~
+                        ~&15793094956877902211&~.~&180994&~ = !~&7082020628281&~.rmhSplitSwitch ? 0
+                                            : isVertical ? ~&7082729686082&~ - ~&15793094956877902211&~.~&7082729686082&~
+                                            : 0
+                        rmhDocumentViewSplit.~&180993&~ = ~&7082020628281&~.rmhSplitSwitch ? 0
+                                                    : isVertical ? 0
+                                                    : ~&214646099849&~ - rmhDocumentViewSplit.~&214646099849&~
+                        rmhDocumentViewSplit.~&180994&~ = ~&7082020628281&~.rmhSplitSwitch ? 0
+                                                    : isVertical ? ~&7082729686082&~ - rmhDocumentViewSplit.~&7082729686082&~
+                                                    : 0
+                    }
+                    ~&6503784146&~ ~&5972376&~ (~&7082020628281&~.rmhSplitMode == ~&7082020628281&~.RmhSplittingMode.DividedVertical) {
+                        ~&197102514&~ firstHeight = isVertical ? ~&7082729686082&~
+                                                    : ~&7082020628281&~.rmhSplitRatio == ~&7082020628281&~.RmhSplittingRatio.Half ? ~&7082729686082&~ / 2
+                                                    : ~&7082020628281&~.rmhSplitRatio == ~&7082020628281&~.RmhSplittingRatio.OneThird ? 2 * ~&7082729686082&~ / 3
+                                                    : ~&7082020628281&~.rmhSplitRatio == ~&7082020628281&~.RmhSplittingRatio.OneFourth ? 3 * ~&7082729686082&~ / 4
+                                                    : 4 * ~&7082729686082&~ / 5
+                        ~&197102514&~ firstWidth = !isVertical ? ~&214646099849&~
+                                                    : ~&7082020628281&~.rmhSplitRatio == ~&7082020628281&~.RmhSplittingRatio.Half ? ~&214646099849&~ / 2
+                                                    : ~&7082020628281&~.rmhSplitRatio == ~&7082020628281&~.RmhSplittingRatio.OneThird ? 2 * ~&214646099849&~ / 3
+                                                    : ~&7082020628281&~.rmhSplitRatio == ~&7082020628281&~.RmhSplittingRatio.OneFourth ? 3 * ~&214646099849&~ / 4
+                                                    : 4 * ~&214646099849&~ / 5
+                        ~&197102514&~ secondHeight = isVertical ? ~&7082729686082&~
+                                                    : ~&7082020628281&~.rmhSplitRatio == ~&7082020628281&~.RmhSplittingRatio.Half ? ~&7082729686082&~ / 2
+                                                    : ~&7082020628281&~.rmhSplitRatio == ~&7082020628281&~.RmhSplittingRatio.OneThird ? ~&7082729686082&~ / 3
+                                                    : ~&7082020628281&~.rmhSplitRatio == ~&7082020628281&~.RmhSplittingRatio.OneFourth ? ~&7082729686082&~ / 4
+                                                    : ~&7082729686082&~ / 5
+                        ~&197102514&~ secondWidth = !isVertical ? ~&214646099849&~
+                                                    : ~&7082020628281&~.rmhSplitRatio == ~&7082020628281&~.RmhSplittingRatio.Half ? ~&214646099849&~ / 2
+                                                    : ~&7082020628281&~.rmhSplitRatio == ~&7082020628281&~.RmhSplittingRatio.OneThird ? ~&214646099849&~ / 3
+                                                    : ~&7082020628281&~.rmhSplitRatio == ~&7082020628281&~.RmhSplittingRatio.OneFourth ? ~&214646099849&~ / 4
+                                                    : ~&214646099849&~ / 5
+                        ~&15793094956877902211&~.~&214646099849&~ = firstWidth
+                        ~&15793094956877902211&~.~&7082729686082&~ = firstHeight
+                        rmhDocumentViewSplit.~&214646099849&~ = secondWidth
+                        rmhDocumentViewSplit.~&7082729686082&~ = secondHeight
+
+                        ~&15793094956877902211&~.~&180993&~ = !~&7082020628281&~.rmhSplitSwitch ? 0
+                                            : isVertical ? ~&214646099849&~ - ~&15793094956877902211&~.~&214646099849&~
+                                            : 0
+                        ~&15793094956877902211&~.~&180994&~ = !~&7082020628281&~.rmhSplitSwitch ? 0
+                                            : !isVertical ? ~&7082729686082&~ - ~&15793094956877902211&~.~&7082729686082&~
+                                            : 0
+                        rmhDocumentViewSplit.~&180993&~ = ~&7082020628281&~.rmhSplitSwitch ? 0
+                                                    : isVertical ? ~&214646099849&~ - rmhDocumentViewSplit.~&214646099849&~
+                                                    : 0
+                        rmhDocumentViewSplit.~&180994&~ = ~&7082020628281&~.rmhSplitSwitch ? 0
+                                                    : !isVertical ? ~&7082729686082&~ - rmhDocumentViewSplit.~&7082729686082&~
+                                                    : 0
+                    }
+                    ~&6503784146&~ {
+                        ~&197102514&~ overlayedPadding = 32;
+                        /* Make space for the eldritch horrors hiding in the toolbar*/
+
+                        rmhDocumentViewSplit.~&214646099849&~ = ~&214646099849&~ / 2
+                        rmhDocumentViewSplit.~&7082729686082&~ = ~&7082729686082&~ / 2
+                        ~&15793094956877902211&~.~&214646099849&~ = ~&7083038346995&~.~&214646099849&~
+                        ~&15793094956877902211&~.~&7082729686082&~ = ~&7083038346995&~.~&7082729686082&~
+                        ~&15793094956877902211&~.~&180993&~ = 0
+                        ~&15793094956877902211&~.~&180994&~ = 0
+                        ~&7083181535963&~ (~&7082020628281&~.rmhOverlayedMode) {
+                            ~&6503700293&~ ~&7082020628281&~.RmhOverlayedMode.TopLeft: {
+                                rmhDocumentViewSplit.~&180993&~ = overlayedPadding;
+                                rmhDocumentViewSplit.~&180994&~ = overlayedPadding
+                                ~&214621519406&~
+                            }
+                            ~&6503700293&~ ~&7082020628281&~.RmhOverlayedMode.TopRight: {
+                                rmhDocumentViewSplit.~&180993&~ = ~&7083038346995&~.~&214646099849&~ - rmhDocumentViewSplit.~&214646099849&~ - overlayedPadding
+                                rmhDocumentViewSplit.~&180994&~ = overlayedPadding
+                                ~&214621519406&~
+                            }
+                            ~&6503700293&~ ~&7082020628281&~.RmhOverlayedMode.BottomLeft: {
+                                rmhDocumentViewSplit.~&180993&~ = overlayedPadding;
+                                rmhDocumentViewSplit.~&180994&~ = ~&7083038346995&~.~&7082729686082&~ - rmhDocumentViewSplit.~&7082729686082&~ - overlayedPadding
+                                ~&214621519406&~
+                            }
+                            ~&6503700293&~ ~&7082020628281&~.RmhOverlayedMode.BottomRight: {
+                                rmhDocumentViewSplit.~&180993&~ = ~&7083038346995&~.~&214646099849&~ - rmhDocumentViewSplit.~&214646099849&~ - overlayedPadding
+                                rmhDocumentViewSplit.~&180994&~ = ~&7083038346995&~.~&7082729686082&~ - rmhDocumentViewSplit.~&7082729686082&~ - overlayedPadding
+                                ~&214621519406&~
+                            }
+                        }
+                    }
+                }
+                rmhMoved()
+            }
+        }
+    END TRAVERSE
+END AFFECT
