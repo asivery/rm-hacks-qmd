@@ -50,7 +50,7 @@ to rm-hacks.
 If the new OS version is compatible with the same version of rm-hacks you have installed (refer to compatibility chart below), it is enough to replace the `zz_rmHacks.qmd` file on the tablet. Otherwise, follow the uninstallation process, then install the new version.
 
 ## Compatibility chart
-| Version       | qt-resource-rebuilder |     3.26.x.x    |     3.24.0.149    |      3.22.4.2     |      3.22.0.64    |      3.20.0.92    |      3.17.0.72    |
+| Version       | qt-resource-rebuilder |     3.26.0.68     |     3.24.0.149    |      3.22.4.2     |      3.22.0.64    |      3.20.0.92    |      3.17.0.72    |
 |  :---:        |        :---:          |       :---:       |       :---:       |       :---:       |       :---:       |       :---:       |       :---:       |
 |**0.0.11-pre5**|>= v17-14012026        |:white_check_mark: |        :x:        |        :x:        |        :x:        |        :x:        |        :x:        |
 |**0.0.11-pre4**|>= v17-14012026        |        :x:        |:white_check_mark: |        :x:        |        :x:        |        :x:        |        :x:        |

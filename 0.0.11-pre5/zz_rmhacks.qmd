@@ -1,5 +1,5 @@
-; rm-hacks-qmd v0.0.11-pre4
-;VERSION 3.24.0.149
+; rm-hacks-qmd v0.0.11-pre5
+VERSION 3.26.0.68
 
 LOAD rmHacks/base/global.qmd
 LOAD rmHacks/base/settings.qmd
