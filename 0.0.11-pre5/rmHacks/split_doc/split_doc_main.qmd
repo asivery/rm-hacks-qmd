@@ -178,6 +178,7 @@ AFFECT [[2328484894988065446]]
                     ~&10509964749635331227&~: ~&6504254477&~.~&10509964749635331227&~
                     ~&254522585318599537&~: ~&6504254477&~.~&254522585318599537&~
                     ~&482865290967253827&~: ~&6504254477&~.~&482865290967253827&~
+                    ~&14825814810595278773&~: ~&6504254477&~.~&14825814810595278773&~
 
                     ~&214626153769&~: ~&6504329801&~ /* Loader is a focus scope. This translates to having focus whenever the loader does.*/
                     ~&11814444212400738190&~: {
@@ -318,10 +319,10 @@ AFFECT [[11806562588218124596]]
     END TRAVERSE
 END AFFECT
 
-;LOAD document_opening.qmd
-;LOAD focus_switching.qmd
-;LOAD no_orientation_switch.qmd
-;LOAD size_recalculation.qmd
-;LOAD layers_menu.qmd
-;LOAD toolbar.qmd
-;LOAD last_document_storage.qmd
+LOAD document_opening.qmd
+LOAD focus_switching.qmd
+LOAD no_orientation_switch.qmd
+LOAD size_recalculation.qmd
+LOAD layers_menu.qmd
+LOAD toolbar.qmd
+LOAD last_document_storage.qmd
