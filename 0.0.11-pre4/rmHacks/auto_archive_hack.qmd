@@ -18,14 +18,21 @@ SLOT rmhSettingsGeneralModel
 END SLOT
 
 AFFECT [[1658694193319203921]]
-    IMPORT net.asivery.CommandExecutor 1.0
     IMPORT [[6504469795.6504031891.8399831271885303833]] 1.0
     IMPORT [[6504469795.6504031891.2868310345845237215]] 1.0
 
     TRAVERSE [[6502786168]]
         LOCATE AFTER ALL
         INSERT {
-            CommandExecutor { ~&5972374&~: rmhArchiveCmd }
+            ~&1222499539198495092&~ {
+                ~&5972374&~: rmhArchiveSearch
+                ~&7082656280847&~: ~&441540721263332537&~.~&254481845007503899&~
+                ~&11895475866095170862&~: ""
+                ~&254547965510323533&~: ~&441540721263332537&~.~&3682612043206841608&~
+                ~&233735394140446&~: ~&233694067165438&~
+                ~&1797797305512504244&~: ~&6504329801&~
+                ~&18202089937263439993&~: 99999
+            }
 
             property ~&6503679477&~ rmhAutoArchiveRunning: ~&214625660372&~
             property ~&197088788&~ rmhArchiveCount: 0
@@ -33,29 +40,15 @@ AFFECT [[1658694193319203921]]
             property ~&197102514&~ rmhArchiveRequested: ({})
 
             function rmhArchiveAllSynced() {
-                ~&233724020023100&~.~&197092075&~("[auto-archive] Starting archive scan...");
                 rmhArchiveStatus = "Scanning documents...";
                 rmhArchiveCount = 0;
+                rmhArchiveSearch.~&254550802165267232&~();
+                ~&197102514&~ uuids = rmhArchiveSearch.~&7712976840128059&~;
 
-                ~&197102514&~ ~&7083121414760&~ = ~&6502785411&~.parse(rmhArchiveCmd.executeCommand("sh", ["-c",
-                    "cd /home/root/.local/share/remarkable/xochitl && { ls -d */ 2>/dev/null | sed 's|/||'; ls *.content 2>/dev/null | sed 's/.content//'; } | sort -u"
-                ]));
-
-                ~&5972376&~ (!~&7083121414760&~ || !~&7083121414760&~.stdout) {
-                    rmhArchiveStatus = "Error: could not list documents";
-                    ~&7083121450889&~;
-                }
-
-                ~&197102514&~ uuids = ~&7083121414760&~.stdout.~&6504329413&~().~&214641616085&~("\n").~&7082656280847&~(function(u) {
-                    ~&7083121450889&~ /^[0-9~&180970&~-f]{8}-[0-9~&180970&~-f]{4}-[0-9~&180970&~-f]{4}-[0-9~&180970&~-f]{4}-[0-9~&180970&~-f]{12}$/.test(u);
-                });
-
-                ~&5972376&~ (uuids.~&7082886407723&~ === 0) {
+                ~&5972376&~ (!uuids || uuids.~&7082886407723&~ === 0) {
                     rmhArchiveStatus = "No documents found to archive";
                     ~&7083121450889&~;
                 }
-
-                rmhArchiveStatus = "Archiving " + uuids.~&7082886407723&~ + " documents...";
 
                 ~&197102514&~ ~&7712810854541167&~ = 0;
                 ~&197102514&~ skipped = 0;
@@ -84,8 +77,6 @@ AFFECT [[1658694193319203921]]
                 rmhArchiveCount = ~&7712810854541167&~;
                 rmhArchiveStatus = "Archived " + ~&7712810854541167&~ + ", skipped " + skipped
                     + (~&478606463984084959&~ > 0 ? ", waiting on " + ~&478606463984084959&~ : "") + ", errors " + errors;
-                ~&233724020023100&~.~&197092075&~("[auto-archive] Done. archived=" + ~&7712810854541167&~ + " skipped=" + skipped
-                    + " downloading=" + ~&478606463984084959&~ + " errors=" + errors);
                 rmhStatusClearTimer.~&233743006639214&~();
             }
 

@@ -30,9 +30,9 @@ LOAD rmHacks/all_mono_hack.qmd
 LOAD rmHacks/toolbar_width_hack.qmd
 LOAD rmHacks/hide_text_tool_hack.qmd
 LOAD rmHacks/navigator_compressed_list_hack.qmd
+LOAD rmHacks/auto_archive_hack.qmd
 
 LOAD rmHacks/split_doc/split_doc_main.qmd
 LOAD rmHacks/table_of_contents_button_hack.qmd
 LOAD rmHacks/hide_close_button_hack.qmd
 LOAD rmHacks/floating.qmd
-LOAD rmHacks/auto_archive_hack.qmd
