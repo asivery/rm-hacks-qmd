@@ -1,0 +1,200 @@
+SLOT rmhConfigProperties
+    INSERT { property ~&6503679477&~ rmhAutoArchiveHack: ~&214625660372&~ }
+END SLOT
+
+SLOT rmhConfigAliases
+    INSERT { property ~&214620122227&~ rmhAutoArchiveHack: ~&7083272960857&~.rmhAutoArchiveHack }
+END SLOT
+
+SLOT rmhSettingsGeneralModel
+    INSERT {
+        {
+           ~&214632764553&~: "Auto-archive panels in Storage",
+           ~&478136262235079021&~: "Show mass archive and auto-archive loop controls in Storage settings",
+           ~&233723734822480&~: ~&7082020628281&~.rmhAutoArchiveHack,
+           ~&7082453764199&~: () => { ~&7082020628281&~.rmhAutoArchiveHack = !~&7082020628281&~.rmhAutoArchiveHack },
+        },
+    }
+END SLOT
+
+AFFECT [[1658694193319203921]]
+    IMPORT net.asivery.CommandExecutor 1.0
+    IMPORT [[6504469795.6504031891.8399831271885303833]] 1.0
+    IMPORT [[6504469795.6504031891.2868310345845237215]] 1.0
+
+    TRAVERSE [[6502786168]]
+        LOCATE AFTER ALL
+        INSERT {
+            CommandExecutor { ~&5972374&~: rmhArchiveCmd }
+
+            property ~&6503679477&~ rmhAutoArchiveRunning: ~&214625660372&~
+            property ~&197088788&~ rmhArchiveCount: 0
+            property ~&7083178290016&~ rmhArchiveStatus: ""
+            property ~&197102514&~ rmhArchiveRequested: ({})
+
+            function rmhArchiveAllSynced() {
+                ~&233724020023100&~.~&197092075&~("[auto-archive] Starting archive scan...");
+                rmhArchiveStatus = "Scanning documents...";
+                rmhArchiveCount = 0;
+
+                ~&197102514&~ ~&7083121414760&~ = ~&6502785411&~.parse(rmhArchiveCmd.executeCommand("sh", ["-c",
+                    "cd /home/root/.local/share/remarkable/xochitl && { ls -d */ 2>/dev/null | sed 's|/||'; ls *.content 2>/dev/null | sed 's/.content//'; } | sort -u"
+                ]));
+
+                ~&5972376&~ (!~&7083121414760&~ || !~&7083121414760&~.stdout) {
+                    rmhArchiveStatus = "Error: could not list documents";
+                    ~&7083121450889&~;
+                }
+
+                ~&197102514&~ uuids = ~&7083121414760&~.stdout.~&6504329413&~().~&214641616085&~("\n").~&7082656280847&~(function(u) {
+                    ~&7083121450889&~ /^[0-9~&180970&~-f]{8}-[0-9~&180970&~-f]{4}-[0-9~&180970&~-f]{4}-[0-9~&180970&~-f]{4}-[0-9~&180970&~-f]{12}$/.test(u);
+                });
+
+                ~&5972376&~ (uuids.~&7082886407723&~ === 0) {
+                    rmhArchiveStatus = "No documents found to archive";
+                    ~&7083121450889&~;
+                }
+
+                rmhArchiveStatus = "Archiving " + uuids.~&7082886407723&~ + " documents...";
+
+                ~&197102514&~ ~&7712810854541167&~ = 0;
+                ~&197102514&~ skipped = 0;
+                ~&197102514&~ ~&478606463984084959&~ = 0;
+                ~&197102514&~ errors = 0;
+                ~&197085552&~ (~&197102514&~ ~&180978&~ = 0; ~&180978&~ < uuids.~&7082886407723&~; ~&180978&~++) {
+                    try {
+                        ~&197102514&~ ~&214624950331&~ = ~&233694067165438&~.~&8399431778896295215&~(uuids[~&180978&~]);
+                        ~&5972376&~ (!~&214624950331&~) { skipped++; ~&7712892661735406&~; }
+                        ~&5972376&~ (~&214624950331&~.~&7712810854541167&~) { skipped++; ~&7712892661735406&~; }
+                        ~&5972376&~ (~&214624950331&~.~&6504337259&~ === ~&214587000859&~.~&8397854845390750421&~) { skipped++; ~&7712892661735406&~; }
+                        ~&5972376&~ (rmhArchiveRequested[uuids[~&180978&~]]) { skipped++; ~&7712892661735406&~; }
+                        ~&5972376&~ (~&214624950331&~.~&7083177691309&~ === ~&214587000859&~.~&429595936455622591&~ || ~&214624950331&~.~&7083177691309&~ === ~&214587000859&~.~&254505807946583692&~) {
+                            ~&478606463984084959&~++;
+                            ~&7712892661735406&~;
+                        }
+                        ~&5204801254017638580&~.~&11095720401680724609&~.~&3952912134228341651&~(uuids[~&180978&~], ~&4691151359052086259&~.~&7711911984627466&~.~&8398537000651522615&~);
+                        rmhArchiveRequested[uuids[~&180978&~]] = ~&6504329801&~;
+                        ~&7712810854541167&~++;
+                    } catch (~&180974&~) {
+                        ~&233724020023100&~.~&197092075&~("[auto-archive] Error archiving " + uuids[~&180978&~] + ": " + ~&180974&~);
+                        errors++;
+                    }
+                }
+
+                rmhArchiveCount = ~&7712810854541167&~;
+                rmhArchiveStatus = "Archived " + ~&7712810854541167&~ + ", skipped " + skipped
+                    + (~&478606463984084959&~ > 0 ? ", waiting on " + ~&478606463984084959&~ : "") + ", errors " + errors;
+                ~&233724020023100&~.~&197092075&~("[auto-archive] Done. archived=" + ~&7712810854541167&~ + " skipped=" + skipped
+                    + " downloading=" + ~&478606463984084959&~ + " errors=" + errors);
+                rmhStatusClearTimer.~&233743006639214&~();
+            }
+
+            ~&214604601930&~ {
+                ~&5972374&~: rmhStatusClearTimer
+                ~&7713147298280334&~: 8000
+                ~&7083121289162&~: ~&214625660372&~
+                ~&495358363329399331&~: {
+                    ~&5972376&~ (!~&7083272960857&~.rmhAutoArchiveRunning) {
+                        ~&7083272960857&~.rmhArchiveStatus = "";
+                    }
+                }
+            }
+
+            property ~&197088788&~ rmhArchiveIdleChecks: 0
+
+            ~&7306187543352398922&~ {
+                ~&5972374&~: rmhSlumberInhibit
+                ~&8399943822441212087&~: ~&8398458654940349591&~
+                ~&6504095402&~: "rmhacks.auto.archive"
+                ~&8399320376766137149&~: !~&7083272960857&~.rmhAutoArchiveRunning
+            }
+
+            ~&214604601930&~ {
+                ~&5972374&~: rmhAutoArchiveTimer
+                ~&7713147298280334&~: 30000
+                ~&7083121289162&~: ~&6504329801&~
+                ~&233743626668842&~: ~&7083272960857&~.rmhAutoArchiveRunning
+                ~&495358363329399331&~: {
+                    ~&5972376&~ (~&14175747548438553957&~.~&254534032094313184&~ && !~&14175747548438553957&~.~&8399552629696584941&~) {
+                        ~&7083272960857&~.rmhArchiveIdleChecks = 0;
+                        ~&7083272960857&~.rmhArchiveStatus = "Sync in progress, waiting...";
+                        ~&7083121450889&~;
+                    }
+
+                    ~&7083272960857&~.rmhArchiveAllSynced();
+
+                    ~&5972376&~ (~&7083272960857&~.rmhArchiveCount > 0) {
+                        ~&7083272960857&~.rmhArchiveIdleChecks = 0;
+                    } ~&6503784146&~ {
+                        ~&7083272960857&~.rmhArchiveIdleChecks++;
+                        ~&5972376&~ (~&7083272960857&~.rmhArchiveIdleChecks >= 2
+                            && ~&13732534870631740246&~.~&2084538902470317244&~
+                            && !~&14175747548438553957&~.~&8399552629696584941&~) {
+                            ~&7083272960857&~.rmhAutoArchiveRunning = ~&214625660372&~;
+                            ~&7083272960857&~.rmhArchiveRequested = {};
+                            ~&7083272960857&~.rmhArchiveStatus = "Auto-archive complete! All synced.";
+                        }
+                    }
+                }
+            }
+        }
+    END TRAVERSE
+END AFFECT
+
+AFFECT [[12680323036303530631]]
+    TRAVERSE [[3819512207256720568]]
+        TRAVERSE [[8398580812105622257]] > [[6502786168]] > [[14125623155555875541]]
+            LOCATE AFTER ALL
+            INSERT {
+                ~&425121728314878811&~.~&214599571833&~ {
+                    ~&5972374&~: archivePanel
+                    ~&7081629735527&~.~&254529418434902000&~: ~&6504329801&~
+                    ~&7081629735527&~.~&254549367831075482&~: ~&425121728314878811&~.~&7082020628281&~.~&7713442318223278&~.~&233744706647566&~.~&233748750575870&~
+                    ~&233748328658231&~: ~&7082020628281&~.rmhAutoArchiveHack
+                    ~&214632764553&~: ~&6504222003&~("Mass Archive")
+                    ~&478136262235079021&~: ~&6504222003&~("Archive all downloaded documents to cloud to free disk space.")
+
+                    ~&9195823055201242195&~: ~&7082020628281&~.rmhArchiveStatus !== ""
+                    ~&8399254548634699250&~: ~&425121728314878811&~.~&437183513164491482&~ {
+                        ~&6504337259&~: ~&254477762679831355&~.~&437183513164491482&~.~&254547519794454865&~
+                        ~&214646099849&~: archivePanel.~&214646099849&~
+                        ~&233736549263054&~: ~&7082020628281&~.rmhArchiveStatus
+                        ~&8399601734642709923&~: ~&7082020628281&~.rmhAutoArchiveRunning ? ~&"1888152859580598239&~ : ~&"13987346296694310791&~
+                    }
+
+                    ~&7082453764199&~: ~&425121728314878811&~.~&7081261925573&~ {
+                        ~&5972374&~: archiveAllButton
+                        ~&6504337259&~: ~&254477762679831355&~.~&7081261925573&~.~&254547519794454865&~
+                        ~&6504315758&~: ~&6504222003&~("Archive All")
+                        ~&254542236275632405&~: ~&7082020628281&~.rmhArchiveAllSynced()
+                    }
+                }
+
+                ~&425121728314878811&~.~&214599571833&~ {
+                    ~&5972374&~: autoArchivePanel
+                    ~&7081629735527&~.~&254529418434902000&~: ~&6504329801&~
+                    ~&233748328658231&~: ~&7082020628281&~.rmhAutoArchiveHack
+                    ~&214632764553&~: ~&6504222003&~("Auto archive & sync loop")
+                    ~&478136262235079021&~: ~&6504222003&~("Repeatedly archive when full, let sync continue. Stops when done.")
+
+                    ~&7082453764199&~: ~&12858967014938070090&~ {
+                        ~&5972374&~: autoArchiveToggle
+                        ~&233723734822480&~: ~&7082020628281&~.rmhAutoArchiveRunning
+                        ~&2132408976983288956&~.~&254542253295368380&~: {
+                            ~&7082020628281&~.rmhAutoArchiveRunning = !~&7082020628281&~.rmhAutoArchiveRunning;
+                            ~&5972376&~ (~&7082020628281&~.rmhAutoArchiveRunning) {
+                                ~&7082020628281&~.rmhArchiveRequested = {};
+                                ~&7082020628281&~.rmhArchiveStatus = "Auto-archive enabled. Monitoring...";
+                                ~&5972376&~ (!~&13732534870631740246&~.~&2084538902470317244&~) {
+                                    ~&7082020628281&~.rmhArchiveAllSynced();
+                                }
+                            } ~&6503784146&~ {
+                                ~&7082020628281&~.rmhArchiveStatus = "Auto-archive disabled.";
+                            }
+                        }
+                    }
+                }
+            }
+        END TRAVERSE
+    END TRAVERSE
+END AFFECT
