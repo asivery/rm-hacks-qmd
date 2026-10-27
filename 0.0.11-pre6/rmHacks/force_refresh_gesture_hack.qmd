@@ -1,0 +1,39 @@
+SLOT rmhConfigProperties
+    INSERT {
+        property ~&6503679477&~ rmhForceRefreshGestureHack: ~&6504329801&~
+    }
+END SLOT
+
+SLOT rmhConfigAliases
+    INSERT {
+        property ~&214620122227&~ rmhForceRefreshGestureHack: ~&7083272960857&~.rmhForceRefreshGestureHack
+    }
+END SLOT
+
+SLOT rmhSettingsGesturesModel
+    INSERT {
+        {
+           ~&214632764553&~: "Gesture to force screen refresh",
+           ~&478136262235079021&~: "Tap with all five fingers to trigger a whole screen refresh",
+           ~&233723734822480&~: ~&7082020628281&~.rmhForceRefreshGestureHack,
+           ~&7082453764199&~: () => { ~&7082020628281&~.rmhForceRefreshGestureHack = !~&7082020628281&~.rmhForceRefreshGestureHack },
+        },
+    }
+END SLOT
+
+AFFECT [[17298303916558156758]]
+    TRAVERSE [[254504370080162629]]
+        LOCATE AFTER [[8520322697674622449]]#[[15919479264072650887]]
+        INSERT {
+            ~&8520322697674622449&~ {
+                ~&5972374&~: rmhGhostbusterFilter
+                ~&8399878573055752961&~: "ghost-buster"
+                ~&233726547792244&~: ~&7082020628281&~.rmhAllGesturesToggle && ~&7082020628281&~.rmhForceRefreshGestureHack
+                ~&233727659172727&~: 5
+                ~&233739427250348&~: {
+                    ~&482865290967253827&~.~&8021204117616398611&~("5-finger gesture");
+                }
+            }
+        }
+    END TRAVERSE
+END AFFECT
