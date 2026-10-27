@@ -12,7 +12,7 @@ Current state of the port:
 - ✅ all_mono_hack.qmd (3.29 dropped the global `ScreenModeItem`; a new one is added to `MainView`)
 - ✅ alphabetize_tags_list_hack.qmd
 - ✅ auto_new_page_hack.qmd
-- ✅ bookmarks.qmd
+- ✅ bookmarks.qmd (reworked UI: ribbon corner indicator drawn with a Canvas, foldout built from Ark foldout items with a scrollable list, rename dialog styled after the library rename screen)
 - ✅ document_battery_wifi_hack.qmd (`WifiManager` is gone; the icon now only reflects online/offline/airplane mode via `LinkProvider`)
 - ✅ document_clock_hack.qmd
 - ✅ document_pages_hide_hack.qmd
@@ -30,7 +30,7 @@ Current state of the port:
 - ✅ share_tool_settings_hack.qmd
 - ✅ share_tool_toggle_all_gestures_hack.qmd
 - ✅ share_tool_toggle_wifi_hack.qmd (toggles airplane mode via `Settings`)
-- ✅ table_of_contents_button_hack.qmd (3.29 only loads the TOC eagerly for ebooks; the hack requests it for PDFs/notebooks on open)
+- ✅ table_of_contents_button_hack.qmd (3.29 only loads the TOC eagerly for ebooks; the hack requests it for PDFs/notebooks on open; button placed before the secondary tools)
 - ✅ toggle_eraser_gesture_hack.qmd
 - ✅ toggle_toolbar_gesture_hack.qmd
 - ✅ toolbar_pages_button_hack.qmd
