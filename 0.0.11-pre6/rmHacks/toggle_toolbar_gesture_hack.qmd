@@ -64,15 +64,39 @@ AFFECT [[1224665461898798997]]
         LOCATE BEFORE ALL INSERT {
             signal requireToolbarSet(~&6503679477&~ vis)
             signal requireToolbarToggle
-            onRequireToolbarToggle: ~&233745975898428&~.~&7712989577739634&~ = !~&233745975898428&~.~&7712989577739634&~
-            onRequireToolbarSet: (vis) => { ~&233745975898428&~.~&7712989577739634&~ = vis }
         }
     END TRAVERSE
     TRAVERSE [[8397993708429497603]] > [[5728643844066569666]]#[[254547437090201330]]
         LOCATE AFTER [[14278829954804520394]]
         INSERT {
             onToggleToolbar: {
-                ~&6504254477&~.requireToolbarToggle();
+                ~&15793094956877902211&~.~&6503936152&~.requireToolbarToggle();
+            }
+        }
+    END TRAVERSE
+END AFFECT
+
+AFFECT [[2328484894988065446]]
+    TRAVERSE [[8397788359424131273]] > [[8397993708429497603]]#[[7713531976371484]]
+        LOCATE BEFORE ALL
+        INSERT {
+            ~&428051690305612204&~ {
+                ~&7083194890448&~: ~&15793094956877902211&~.~&6503936152&~
+                function onRequireToolbarToggle() {
+                    setToolbarShown(!toolbarShown);
+                }
+                function onRequireToolbarSet(vis) {
+                    setToolbarShown(vis);
+                }
+            }
+            ~&428051690305612204&~ {
+                ~&7083194890448&~: rmhDocumentViewSplit.~&6503936152&~
+                function onRequireToolbarToggle() {
+                    setToolbarShown(!toolbarShown);
+                }
+                function onRequireToolbarSet(vis) {
+                    setToolbarShown(vis);
+                }
             }
         }
     END TRAVERSE
