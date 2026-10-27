@@ -35,7 +35,7 @@ Current state of the port:
 - ✅ toggle_toolbar_gesture_hack.qmd
 - ✅ toolbar_pages_button_hack.qmd
 - ✅ toolbar_width_hack.qmd
-- ✅ floating.qmd (fixed a stray `ToolbarTool.Type.ToolButton`, which is not a member of the enum)
+- ✅ floating.qmd (reworked: toggle moved into the toolbar's settings foldout, tap the handle to expand/collapse, drag a lightweight outline with orientation decided on drop, bar always stays on screen, presets select the matching pen slot instead of overwriting the primary pen, stock-style colour dot, placement and on/off state persisted)
 
 Other notes:
 

@@ -103,28 +103,18 @@ AFFECT [[2328484894988065446]]
     END TRAVERSE
 END AFFECT
 
-; 3.29 only loads the table of contents eagerly for ebooks; PDFs and notebooks
-; get it on demand from the page overview. Force it whenever the button is enabled.
-; (Replaced wholesale: qmldiff cannot REBUILD a function with a default argument.)
+; 3.29 only requests the TOC eagerly for ebooks; with the button on, request it for every document.
 AFFECT [[1224665461898798997]]
     TRAVERSE [[8397993708429497603]]
-        REPLACE [[18176316094395348573]] WITH {
-            function ~&18176316094395348573&~(~&214626169496&~) {
-                ~&5972376&~ (!~&7712934851008712&~) {
-                    ~&7083121450889&~;
-                }
-
-                ~&5972376&~ (!(~&214626169496&~ || ~&7082020628281&~.rmhTableOfContentsButtonHack) && ~&7712934851008712&~.~&7713012671454059&~ !== ~&7711571060833448&~.~&214586564057&~) {
-                    ~&7083121450889&~;
-                }
-
-                ~&8400128583621891373&~ = ~&6504329801&~;
-                ~&2918312801265623842&~.~&1390591194113405044&~(~&7712934851008712&~.~&5972374&~);
-            }
-        }
         REBUILD [[15540965305686433881]]
-            LOCATE BEFORE { ~&8399923449683299259&~ = ~&6502909715&~.~&197092719&~(0, }
-            INSERT { ~&5972376&~ (~&7082020628281&~.rmhTableOfContentsButtonHack && ~&7712934851008712&~.~&7713012671454059&~ !== ~&7711571060833448&~.~&214586564057&~) ~&18176316094395348573&~(~&6504329801&~); }
+            LOCATE BEFORE { ~&5972376&~ (~&7712934851008712&~.~&7713012671454059&~ === ~&7711571060833448&~.~&214586564057&~) { ~&18176316094395348573&~(); } }
+            REPLACE LOCATED WITH { ~&5972376&~ (~&7082020628281&~.rmhTableOfContentsButtonHack || ~&7712934851008712&~.~&7713012671454059&~ === ~&7711571060833448&~.~&214586564057&~) { ~&18176316094395348573&~(~&6504329801&~); } }
         END REBUILD
+        TRAVERSE [[428051690305612204]][.[[7083194890448]]=[[7712934851008712]]]
+            REBUILD [[1576309469129240203]]
+                LOCATE BEFORE { ~&18176316094395348573&~(); }
+                REPLACE LOCATED WITH { ~&18176316094395348573&~(~&7082020628281&~.rmhTableOfContentsButtonHack); }
+            END REBUILD
+        END TRAVERSE
     END TRAVERSE
 END AFFECT

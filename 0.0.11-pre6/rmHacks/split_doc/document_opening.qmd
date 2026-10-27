@@ -1,7 +1,6 @@
 AFFECT [[2328484894988065446]]
     TRAVERSE [[8397788359424131273]]
-        ; 3.29 destructures the argument in the signature, which qmldiff cannot REBUILD,
-        ; so the whole function is replaced (body mirrors stock 3.29.0.153).
+        ; Replaced wholesale: qmldiff cannot REBUILD a function with a destructured parameter (body mirrors stock 3.29.0.153).
         REPLACE [[7713401573498017]] WITH {
             function ~&7713401573498017&~(rmhArgs) {
                 ~&214622607920&~ { ~&8399386052748489877&~ = "", ~&7713020419677970&~ = "", ~&6504167078&~ = -1, ~&5409546552121474180&~ = ~&6504117156&~, ~&8400072893140454432&~ = ~&214625660372&~, ~&8399898061366432312&~ = ~&6504117156&~, ~&12910127260122907991&~ = ~&6504117156&~ } = rmhArgs || {};

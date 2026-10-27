@@ -1,7 +1,0 @@
-; 3.29 already gives the editing tools Repeater `id: editingTools`;
-; hacks reference it through this alias so older diffs keep working.
-AFFECT [[11313888899523275277]]
-    TRAVERSE [[8397993708429497603]]
-        LOCATE BEFORE ALL INSERT { property ~&214620122227&~ _editingTools: ~&15827066597889961342&~ }
-    END TRAVERSE
-END AFFECT
