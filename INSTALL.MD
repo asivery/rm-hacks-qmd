@@ -6,7 +6,7 @@ Please read this manual at least once before proceeding! This software is entire
 
 # rmHacks Manual Install Guide
 
-This guide assumes a blank slate, and that you haven't already tried installing xovi. If you have, and want to follow this guide, you should first clean up your first attempt by running (on your reMarkable over SSH): `rm -rf ~/xovi`.
+This guide assumes a blank slate, and that you haven't already tried installing xovi. If you have already attempted to install Xovi, inspect `~/xovi` first. The command `rm -rf ~/xovi` permanently deletes the entire directory, including any other installed extensions and their configuration. Run it only after confirming that the directory contains nothing you need and belongs solely to the disposable failed attempt; otherwise preserve it and consult Xovi's own uninstall guidance.
 
 ## Download Xovi
 
