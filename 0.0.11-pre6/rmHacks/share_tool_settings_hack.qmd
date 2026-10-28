@@ -10,7 +10,7 @@ SLOT rmhConfigAliases
     }
 END SLOT
 
-SLOT rmhShareToolFoldoutModel
+SLOT rmhMenuFooter
     INSERT {
         ~&425121728314878811&~.~&432643201877711221&~ {
             ~&214632764553&~: ~&6504222003&~("rM Hacks Settings")
@@ -18,7 +18,6 @@ SLOT rmhShareToolFoldoutModel
             ~&15640708674084664669&~: ~&6504254477&~.~&15640708674084664669&~
             ~&233748328658231&~: ~&7082020628281&~.rmhDocumentGotoSettingsButtonHack
             ~&233726547792244&~: ~&7082020628281&~.rmhDocumentGotoSettingsButtonHack
-            ~&8400129127120172259&~: ~&7082020628281&~.rmhDocumentTogglesHack
             ~&254542236275632405&~: () => { ~&6504254477&~.~&233745975898428&~.~&2766288418351025740&~.~&6504147419&~(~&"16962669231808009333&~, { ~&214629676161&~: ~&7082020628281&~.rmHacksSettingsPage }); }
             ~&7081629735527&~.~&254529418434902000&~: ~&6504329801&~
         }

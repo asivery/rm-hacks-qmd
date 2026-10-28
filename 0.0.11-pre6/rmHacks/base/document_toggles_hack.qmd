@@ -29,6 +29,16 @@ AFFECT [[11704595946725378272]]
     IMPORT [[6504469795.6504031891.7713561876955258]] 1.0
 
     TRAVERSE [[454089850271038938]] > [[254480451320573660]]#[[16710723433319324941]] > [[14125623155555875541]]
-        LOCATE AFTER ALL INSERT SLOT rmhShareToolFoldoutModel
+        LOCATE AFTER ALL
+        INSERT {
+            ~&14125623155555875541&~ {
+                ~&233748328658231&~: ~&7082020628281&~.rmhDocumentTogglesHack
+                ~&233744706647566&~: 0
+                ~&7081629735527&~.~&254529418434902000&~: ~&6504329801&~
+                ~{rmhShareToolFoldoutModel}~
+            }
+        }
+        INSERT SLOT rmhMenuEntries
+        INSERT SLOT rmhMenuFooter
     END TRAVERSE
 END AFFECT
