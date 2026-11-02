@@ -13,8 +13,8 @@ END SLOT
 SLOT rmhSettingsGesturesModel
     INSERT {
         {
-           ~&214632764553&~: "Gesture to toggle toolbar",
-           ~&478136262235079021&~: "Swipe one finger down to open or close the toolbar",
+           ~&214632764553&~: ~&6504222003&~("Toggle toolbar"),
+           ~&478136262235079021&~: ~&6504222003&~("Swipe one finger down to open or close the toolbar"),
            ~&233723734822480&~: ~&7082020628281&~.rmhToggleToolbarGestureHack,
            ~&7082453764199&~: () => { ~&7082020628281&~.rmhToggleToolbarGestureHack = !~&7082020628281&~.rmhToggleToolbarGestureHack },
         },

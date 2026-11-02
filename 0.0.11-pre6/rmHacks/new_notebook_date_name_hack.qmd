@@ -13,8 +13,9 @@ END SLOT
 SLOT rmhSettingsDocumentsModel
     INSERT {
         {
-           ~&214632764553&~: "Set new notebook name as current date",
-           ~&478136262235079021&~: "The default name for a newly created notebook is set to the current date in the format 'yyyy-mm-dd_hhmmss'",
+           ~&233744279141054&~: ~&6504222003&~("Pages and notebooks"),
+           ~&214632764553&~: ~&6504222003&~("Date as notebook name"),
+           ~&478136262235079021&~: ~&6504222003&~("New notebooks are named after the current date and time (yyyy-mm-dd_hhmmss)"),
            ~&233723734822480&~: ~&7082020628281&~.rmhNewNotebookDateNameHack,
            ~&7082453764199&~: () => { ~&7082020628281&~.rmhNewNotebookDateNameHack = !~&7082020628281&~.rmhNewNotebookDateNameHack },
         },

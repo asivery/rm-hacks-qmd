@@ -13,8 +13,9 @@ END SLOT
 SLOT rmhSettingsToolbarModel
     INSERT {
         {
-            ~&214632764553&~: "Decrease toolbar width",
-            ~&478136262235079021&~: "The toolbar width is decreased to 75% of its original size.",
+            ~&233744279141054&~: ~&6504222003&~("Tools"),
+            ~&214632764553&~: ~&6504222003&~("Narrow toolbar"),
+            ~&478136262235079021&~: ~&6504222003&~("Shrinks the toolbar to 75% of its width"),
             ~&233723734822480&~: ~&7082020628281&~.rmhDecreaseToolbarWidthHack,
             ~&7082453764199&~: () => {
                 ~&7082020628281&~.rmhDecreaseToolbarWidthHack = !~&7082020628281&~.rmhDecreaseToolbarWidthHack;

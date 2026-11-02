@@ -13,8 +13,8 @@ END SLOT
 SLOT rmhSettingsGesturesModel
     INSERT {
         {
-           ~&214632764553&~: "Gesture to open previous document",
-           ~&478136262235079021&~: "Swipe two fingers up from the bottom of the page to open previously edited document",
+           ~&214632764553&~: ~&6504222003&~("Previous document"),
+           ~&478136262235079021&~: ~&6504222003&~("Swipe two fingers up from the bottom to reopen the last document"),
            ~&233723734822480&~: ~&7082020628281&~.rmhLastDocumentGestureHack,
            ~&7082453764199&~: () => { ~&7082020628281&~.rmhLastDocumentGestureHack = !~&7082020628281&~.rmhLastDocumentGestureHack },
         },

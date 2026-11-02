@@ -15,8 +15,8 @@ END SLOT
 SLOT rmhSettingsGeneralModel
     INSERT {
         {
-           ~&214632764553&~: "Compressed files list",
-           ~&478136262235079021&~: "Add an option to the 'Sort by/View' dropdown menu to display the file list in a compressed mode",
+           ~&214632764553&~: ~&6504222003&~("Compact file list"),
+           ~&478136262235079021&~: ~&6504222003&~("Adds a compact list view to the library's Sort by/View menu"),
            ~&233723734822480&~: ~&7082020628281&~.rmhNavigatorCompressedListHack,
            ~&7082453764199&~: () => { ~&7082020628281&~.rmhNavigatorCompressedListHack = !~&7082020628281&~.rmhNavigatorCompressedListHack },
         },

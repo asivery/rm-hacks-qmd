@@ -67,7 +67,7 @@ AFFECT [[1658694193319203921]]
 
             /* Secondary toolbar tools that the "share and tags in the menu" hack relocates. */
             function rmhToolMovedToMenu(~&7713617204171177&~) {
-                ~&7083121450889&~ rmhShareTagsInMenuHack && (~&7713617204171177&~ === ~&14984965058935971405&~.~&214603367420&~ || ~&7713617204171177&~ === ~&14984965058935971405&~.~&6503160856&~);
+                ~&7083121450889&~ (rmhShareInMenuHack && ~&7713617204171177&~ === ~&14984965058935971405&~.~&214603367420&~) || (rmhTagsInMenuHack && ~&7713617204171177&~ === ~&14984965058935971405&~.~&6503160856&~);
             }
 
             /* Float-bar preset vs pen slot: tool and thickness, plus colour for writing tools. */
@@ -109,7 +109,7 @@ AFFECT [[1658694193319203921]]
 
             /* rmHacks: Hacks Configuration*/
 
-            readonly property ~&197102514&~ rmhVersion: "0.0.10"
+            readonly property ~&197102514&~ rmhVersion: "0.0.11-pre6"
         }
         INSERT SLOT rmhConfigProperties
         INSERT {

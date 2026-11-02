@@ -13,8 +13,8 @@ END SLOT
 SLOT rmhSettingsGeneralModel
     INSERT {
         {
-            ~&214632764553&~: "Alphabetize tags filter list",
-            ~&478136262235079021&~: "Sort the tags used for filtering in alphabetical order within the 'Menu/Tags' view",
+            ~&214632764553&~: ~&6504222003&~("Alphabetical tag filter"),
+            ~&478136262235079021&~: ~&6504222003&~("Sorts the tags in the library's tag filter alphabetically"),
             ~&233723734822480&~: ~&7082020628281&~.rmhAlphabetizeTagsListHack,
             ~&7082453764199&~: () => { ~&7082020628281&~.rmhAlphabetizeTagsListHack = !~&7082020628281&~.rmhAlphabetizeTagsListHack },
         },

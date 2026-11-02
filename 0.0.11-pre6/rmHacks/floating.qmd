@@ -13,8 +13,9 @@ END SLOT
 SLOT rmhSettingsQuicktoolsModel
     INSERT {
         {
-           ~&214632764553&~: "Floating toolbar",
-           ~&478136262235079021&~: "FouzR's implementation of the floating toolbar for rmHacks",
+           ~&233744279141054&~: ~&6504222003&~("Tools"),
+           ~&214632764553&~: ~&6504222003&~("Floating toolbar"),
+           ~&478136262235079021&~: ~&6504222003&~("A movable bar of pen presets and undo/redo, also toggled from the toolbar's settings menu. By FouzR"),
            ~&233723734822480&~: ~&7082020628281&~.rmhFloatbarVisible,
            ~&7082453764199&~: () => { ~&7082020628281&~.rmhFloatbarVisible = !~&7082020628281&~.rmhFloatbarVisible },
         },

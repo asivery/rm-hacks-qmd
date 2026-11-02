@@ -28,8 +28,9 @@ END SLOT
 SLOT rmhSettingsToolbarModel
     INSERT {
         {
-            ~&214632764553&~: "Document battery and wifi icons",
-            ~&478136262235079021&~: "Enables a battery and a wifi icon at the bottom of the toolbar (only works with the full width toolbar)",
+            ~&233744279141054&~: ~&6504222003&~(~&"7081925358733&~),
+            ~&214632764553&~: ~&6504222003&~("Battery and Wi-Fi"),
+            ~&478136262235079021&~: ~&6504222003&~("Shows battery and Wi-Fi icons at the bottom of the toolbar (full-width toolbar only)"),
             ~&233723734822480&~: ~&7082020628281&~.rmhDocumentBatteryWiFiHack,
             ~&7082453764199&~: () => {
                 ~&7082020628281&~.rmhDocumentBatteryWiFiHack = !~&7082020628281&~.rmhDocumentBatteryWiFiHack;
