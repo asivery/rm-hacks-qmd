@@ -1,0 +1,16 @@
+; The new-tag text field is a bar along the top of the document. With the toolbar docked at the
+; top it sat underneath it, partly covered by the still-open tags foldout. Hide the toolbar while
+; typing a tag name and close the foldout; the new tag is still applied.
+AFFECT [[1224665461898798997]]
+    TRAVERSE [[8397993708429497603]] > [[6502786168]]#[[15549782143769420265]] > [[233704648923420]]
+        REBUILD [[233748328658231]]
+            LOCATE AFTER ALL INSERT { && !~&473473356317617858&~.~&233748328658231&~ }
+        END REBUILD
+        TRAVERSE [[5359600728803875359]]#[[7713598778291353]]
+            REBUILD [[4466056590388405979]]
+                LOCATE AFTER { ~&473473356317617858&~.~&6504147419&~(~&7713598778291353&~); }
+                INSERT { ~&233745975898428&~.~&4014536055437803931&~(); }
+            END REBUILD
+        END TRAVERSE
+    END TRAVERSE
+END AFFECT

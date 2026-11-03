@@ -77,3 +77,19 @@ AFFECT [[15392681159132014986]]
         END REBUILD
     END TRAVERSE
 END AFFECT
+
+; The tag picker is one shared popup that each Tags button reparents into its own foldout,
+; but only when the foldout itself is reparented. With a second Tags button in the menu the
+; toolbar's button could open an empty foldout, so claim the popup whenever a foldout opens.
+AFFECT [[4401647767372286494]]
+    TRAVERSE [[454089850271038938]]#[[6504254477]]
+        REPLACE [[4398770018978416027]] WITH {
+            ~&4398770018978416027&~: {
+                ~&5972376&~ (~&6144132546476015892&~ && ~&233727891516422&~) {
+                    ~&6144132522167405889&~.~&7083038346995&~ = ~&233727891516422&~;
+                }
+                ~&6504254477&~.~&233745975898428&~.~&7022621617922149540&~(~&6144132546476015892&~);
+            }
+        }
+    END TRAVERSE
+END AFFECT

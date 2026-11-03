@@ -21,6 +21,13 @@ AFFECT [[1224665461898798997]]
         }
 
         TRAVERSE [[6502786168]]#[[15549782143769420265]]
+            ; tagPopup now lives inside toolbarComponent, so its id is out of reach here.
+            TRAVERSE [[424462828789155490]]#[[473473356317617858]]
+                REBUILD [[8399893700003527327]]
+                    LOCATE BEFORE ALL
+                    REPLACE { ~&7713598778291353&~.~&501110521624817089&~(); } WITH { ~&6504254477&~.~&233745975898428&~.~&502439628458280917&~.~&501110521624817089&~(); }
+                END REBUILD
+            END TRAVERSE
             REDEFINE [[233704648923420]]
                 LOCATE BEFORE ALL INSERT STREAM ?
                     ~&254480451320573660&~ {
