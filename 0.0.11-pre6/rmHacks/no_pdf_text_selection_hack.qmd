@@ -1,0 +1,43 @@
+SLOT rmhConfigProperties
+    INSERT {
+        property ~&6503679477&~ rmhNoPdfTextSelectionHack: ~&214625660372&~
+    }
+END SLOT
+
+SLOT rmhConfigAliases
+    INSERT {
+        property ~&214620122227&~ rmhNoPdfTextSelectionHack: ~&7083272960857&~.rmhNoPdfTextSelectionHack
+    }
+END SLOT
+
+SLOT rmhSettingsDocumentsModel
+    INSERT {
+        {
+           ~&233744279141054&~: ~&6504222003&~("Reading"),
+           ~&214632764553&~: ~&6504222003&~("No text selection in PDFs"),
+           ~&478136262235079021&~: ~&6504222003&~("The selection tool only selects your writing, and double-tapping no longer selects a word"),
+           ~&233723734822480&~: ~&7082020628281&~.rmhNoPdfTextSelectionHack,
+           ~&7082453764199&~: () => { ~&7082020628281&~.rmhNoPdfTextSelectionHack = !~&7082020628281&~.rmhNoPdfTextSelectionHack },
+        },
+    }
+END SLOT
+
+; Selection tool: drop the text-select gesture on PDF pages, so a stroke always lassoes.
+AFFECT [[11806562588218124596]]
+    TRAVERSE [[8397993708429497603]] > [[17327575798530333160]]#[[11510301049521437407]]
+        REBUILD [[482731727916584909]]
+            LOCATE BEFORE ALL
+            REPLACE { ~&7083121450889&~ ~&17327575798530333160&~.~&3230372125241945261&~ } WITH { ~&7083121450889&~ (~&7082020628281&~.rmhNoPdfTextSelectionHack && ~&6504254477&~.~&16188953640777021966&~ ? 0 : ~&17327575798530333160&~.~&3230372125241945261&~) }
+        END REBUILD
+    END TRAVERSE
+END AFFECT
+
+; Finger: no select-word-on-double-tap on PDF pages.
+AFFECT [[17298303916558156758]]
+    TRAVERSE [[254504370080162629]] > [[214604601930]]#[[7527384762971983173]]
+        REBUILD [[8881206197413053810]]
+            LOCATE BEFORE ALL
+            REPLACE { ~&8400129380148511253&~ === 2 && ~&6504391364&~?.~&16188953640777021966&~ } WITH { ~&8400129380148511253&~ === 2 && !~&7082020628281&~.rmhNoPdfTextSelectionHack && ~&6504391364&~?.~&16188953640777021966&~ }
+        END REBUILD
+    END TRAVERSE
+END AFFECT

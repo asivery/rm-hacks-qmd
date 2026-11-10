@@ -1,0 +1,31 @@
+SLOT rmhConfigProperties
+    INSERT {
+        property ~&6503679477&~ rmhDocumentPagesHideHack: ~&6504329801&~
+    }
+END SLOT
+
+SLOT rmhConfigAliases
+    INSERT {
+        property ~&214620122227&~ rmhDocumentPagesHideHack: ~&7083272960857&~.rmhDocumentPagesHideHack
+    }
+END SLOT
+
+SLOT rmhSettingsDocumentsModel
+    INSERT {
+        {
+           ~&233744279141054&~: ~&6504222003&~("Reading"),
+           ~&214632764553&~: ~&6504222003&~("Hide page numbers"),
+           ~&478136262235079021&~: ~&6504222003&~("Hides the page number at the bottom of the document"),
+           ~&233723734822480&~: ~&7082020628281&~.rmhDocumentPagesHideHack,
+           ~&7082453764199&~: () => { ~&7082020628281&~.rmhDocumentPagesHideHack = !~&7082020628281&~.rmhDocumentPagesHideHack },
+        },
+    }
+END SLOT
+
+AFFECT [[1224665461898798997]]
+    TRAVERSE [[8397993708429497603]] > [[6502786168]]#[[15549782143769420265]] > [[8397788359424131273]]#[[254543134828917702]]
+        REBUILD [[233748328658231]]
+            LOCATE BEFORE ALL INSERT { !~&7082020628281&~.rmhDocumentPagesHideHack && }
+        END REBUILD
+    END TRAVERSE
+END AFFECT
